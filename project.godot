@@ -27,7 +27,8 @@ gdscript/warnings/unsafe_method_access=1
 folder_colors={
 "res://assets/": "red",
 "res://scenes/": "teal",
-"res://scripts/": "blue"
+"res://scripts/": "blue",
+"res://unsorted_assets/": "pink"
 }
 
 [input]

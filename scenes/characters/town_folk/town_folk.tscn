@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bd5x6ldqmpceg"]
+
+[ext_resource type="SpriteFrames" uid="uid://do0y5lma5oqbv" path="res://assets/characters/townfolk/town_folk_sprite_frames.tres" id="1_0pv6v"]
+[ext_resource type="Script" path="res://scenes/characters/town_folk/town_folk.gd" id="1_64sp7"]
+
+[node name="TownFolk" type="CharacterBody2D"]
+script = ExtResource("1_64sp7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_0pv6v")
+animation = &"walk_7"

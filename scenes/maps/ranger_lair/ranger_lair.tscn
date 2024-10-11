@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://b7de1soj2ai61"]
+[gd_scene load_steps=6 format=4 uid="uid://b7de1soj2ai61"]
 
 [ext_resource type="TileSet" uid="uid://1w3uk830e33o" path="res://assets/tilemaps/farm/tileset.tres" id="1_f70k2"]
 [ext_resource type="Script" path="res://scenes/maps/ranger_lair/ranger_lair.gd" id="1_ldlos"]
 [ext_resource type="PackedScene" uid="uid://kde8g4y7fa1n" path="res://scenes/characters/ranger/ranger.tscn" id="2_17o7f"]
 [ext_resource type="PackedScene" uid="uid://dhml8u5lpdonw" path="res://scenes/props/farm_manager/farm_manager.tscn" id="3_on1ek"]
+[ext_resource type="PackedScene" uid="uid://cc1d7ocgmhriu" path="res://scenes/props/crop_field/crop_field.tscn" id="5_116rs"]
 
 [node name="RangerLair" type="Node2D"]
 script = ExtResource("1_ldlos")
@@ -36,6 +37,11 @@ position = Vector2(10, 30)
 position = Vector2(48, 0)
 collision_layer = 2
 collision_mask = 0
+
+[node name="CropFields" type="Node2D" parent="."]
+
+[node name="CropField" parent="CropFields" instance=ExtResource("5_116rs")]
+position = Vector2(-40, -16)
 
 [node name="Pawns" type="Node2D" parent="."]
 unique_name_in_owner = true

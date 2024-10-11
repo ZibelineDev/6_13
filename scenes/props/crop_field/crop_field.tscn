@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc1d7ocgmhriu"]
+
+[ext_resource type="Script" path="res://scenes/props/crop_field/crop_field.gd" id="1_eslea"]
+[ext_resource type="PackedScene" uid="uid://crxc6kwua01h2" path="res://scenes/props/crop_field/crop/crop.tscn" id="1_jw1hy"]
+
+[node name="CropField" type="Node2D"]
+script = ExtResource("1_eslea")
+
+[node name="Crop1" parent="." instance=ExtResource("1_jw1hy")]
+position = Vector2(-8, -8)
+
+[node name="Crop2" parent="." instance=ExtResource("1_jw1hy")]
+position = Vector2(0, -8)
+
+[node name="Crop3" parent="." instance=ExtResource("1_jw1hy")]
+position = Vector2(8, -8)
+
+[node name="Crop4" parent="." instance=ExtResource("1_jw1hy")]
+position = Vector2(-8, 0)
+
+[node name="Crop5" parent="." instance=ExtResource("1_jw1hy")]
+
+[node name="Crop6" parent="." instance=ExtResource("1_jw1hy")]
+position = Vector2(8, 0)
+
+[node name="Crop7" parent="." instance=ExtResource("1_jw1hy")]
+position = Vector2(-8, 8)
+
+[node name="Crop8" parent="." instance=ExtResource("1_jw1hy")]
+position = Vector2(0, 8)
+
+[node name="Crop9" parent="." instance=ExtResource("1_jw1hy")]
+position = Vector2(8, 8)

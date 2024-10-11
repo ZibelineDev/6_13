@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://crxc6kwua01h2"]
+
+[ext_resource type="Script" path="res://scenes/props/crops/crop/crop.gd" id="1_bjmqi"]
+[ext_resource type="SpriteFrames" uid="uid://ce71824wak632" path="res://assets/props/crops/pumpkin.tres" id="1_we1v0"]
+
+[node name="Crop" type="Node2D"]
+script = ExtResource("1_bjmqi")
+
+[node name="AnimatedSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = ExtResource("1_we1v0")
+animation = &"stage_0"

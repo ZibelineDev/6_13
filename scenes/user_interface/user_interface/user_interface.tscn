@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://gein4tuhwqtf"]
+
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/user_interface.gd" id="1_eengl"]
+[ext_resource type="PackedScene" uid="uid://bw02pnmwjral5" path="res://scenes/user_interface/user_interface/crops_manager/crops_manager.tscn" id="2_rbu8r"]
+
+[node name="UserInterface" type="CanvasLayer"]
+script = ExtResource("1_eengl")
+
+[node name="Book" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Panel" type="Panel" parent="Book"]
+layout_mode = 2
+
+[node name="CropsManager" parent="." instance=ExtResource("2_rbu8r")]
+visible = false

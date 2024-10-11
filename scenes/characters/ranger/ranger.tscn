@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://kde8g4y7fa1n"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_56j6f"]
+[ext_resource type="SpriteFrames" uid="uid://c235ahuttu23a" path="res://assets/characters/ranger/animation.tres" id="2_as4ei"]
+[ext_resource type="Script" path="res://scripts/player_raycast.gd" id="3_w7gc1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tm533"]
+radius = 5.0
+
+[node name="Ranger" type="CharacterBody2D"]
+script = ExtResource("1_56j6f")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tm533")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = ExtResource("2_as4ei")
+animation = &"walk_7"
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+unique_name_in_owner = true
+target_position = Vector2(0, 0)
+collision_mask = 2
+script = ExtResource("3_w7gc1")

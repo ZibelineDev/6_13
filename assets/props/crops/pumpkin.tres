@@ -1,0 +1,71 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://ce71824wak632"]
+
+[ext_resource type="Texture2D" uid="uid://cb7fh45qkw7l5" path="res://assets/tilemaps/farm/crops.png" id="1_vb2w7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnm3w"]
+atlas = ExtResource("1_vb2w7")
+region = Rect2(16, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1edo"]
+atlas = ExtResource("1_vb2w7")
+region = Rect2(24, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkt8i"]
+atlas = ExtResource("1_vb2w7")
+region = Rect2(32, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k05eg"]
+atlas = ExtResource("1_vb2w7")
+region = Rect2(40, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tig30"]
+atlas = ExtResource("1_vb2w7")
+region = Rect2(48, 8, 8, 8)
+
+[resource]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"stage_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnm3w")
+}],
+"loop": false,
+"name": &"stage_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1edo")
+}],
+"loop": true,
+"name": &"stage_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkt8i")
+}],
+"loop": true,
+"name": &"stage_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k05eg")
+}],
+"loop": true,
+"name": &"stage_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tig30")
+}],
+"loop": true,
+"name": &"stage_5",
+"speed": 5.0
+}]

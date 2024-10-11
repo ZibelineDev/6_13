@@ -5,7 +5,7 @@ extends CharacterBody2D
 const SPEED : float = 50.0
 
 
-var _last_direction_key : int = 0
+var _last_direction_key : int = 2
 
 
 func _physics_process(_delta : float) -> void :

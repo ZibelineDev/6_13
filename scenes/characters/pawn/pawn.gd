@@ -5,7 +5,7 @@ extends CharacterBody2D
 const SPEED : float = 5.0
 
 
-var _last_direction_key : int = 1
+var _last_direction_key : int = 2
 
 
 var _current_state : PawnStateAbstract

@@ -8,16 +8,17 @@ func _init() -> void :
 	else : queue_free()
 
 
-var _current_menu : Control
+var _current_menu : UIMenu
 
 
 @onready var book : Control = $Book
+@onready var crops_manager : UIMenu = $CropsManager
 
 
 func _input(event : InputEvent) -> void :
 	if is_active() : 
 		if event.is_action_pressed("escape") : 
-			close_book()
+			_current_menu.close()
 	
 	if event.is_action_pressed("character_switch") : 
 		Root.ref.switch_scene()
@@ -28,8 +29,12 @@ func open_book() -> void :
 	_current_menu = book
 
 
-func close_book() -> void : 
-	book.visible = false
+func open_crops_manager() -> void : 
+	crops_manager.visible = true
+	_current_menu = crops_manager
+
+
+func ui_element_closed() -> void : 
 	_current_menu = null
 
 

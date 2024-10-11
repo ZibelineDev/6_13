@@ -3,4 +3,4 @@ extends InteractiveProp
 
 
 func interact() -> void : 
-	UserInterface.ref.open_book()
+	UserInterface.ref.open_crops_manager()

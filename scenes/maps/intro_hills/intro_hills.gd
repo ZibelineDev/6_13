@@ -60,4 +60,6 @@ func _trigger_walk_away() -> void :
 	
 	await get_tree().create_timer(2).timeout
 	
-	LoadingFade.ref.fade_in(1)
+	await LoadingFade.ref.fade_in(1)
+	
+	Root.ref.switch_scene()

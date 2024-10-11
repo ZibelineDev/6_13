@@ -11,9 +11,8 @@
 script = ExtResource("1_r70vg")
 test = ExtResource("1_a1j0m")
 ranger_lair = ExtResource("2_0hqy8")
+intro_hill = ExtResource("6_kc5u0")
 
 [node name="LoadingFade" parent="." instance=ExtResource("3_eso5h")]
 
 [node name="UserInterface" parent="." instance=ExtResource("2_i5r7h")]
-
-[node name="IntroHills" parent="." instance=ExtResource("6_kc5u0")]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://gein4tuhwqtf"]
+[gd_scene load_steps=3 format=3 uid="uid://gein4tuhwqtf"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/user_interface.gd" id="1_eengl"]
+[ext_resource type="PackedScene" uid="uid://bw02pnmwjral5" path="res://scenes/user_interface/user_interface/crops_manager/crops_manager.tscn" id="2_rbu8r"]
 
 [node name="UserInterface" type="CanvasLayer"]
 script = ExtResource("1_eengl")
@@ -19,3 +20,6 @@ theme_override_constants/margin_bottom = 64
 
 [node name="Panel" type="Panel" parent="Book"]
 layout_mode = 2
+
+[node name="CropsManager" parent="." instance=ExtResource("2_rbu8r")]
+visible = false

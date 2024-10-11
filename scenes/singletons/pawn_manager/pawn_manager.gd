@@ -13,7 +13,7 @@ func _init() -> void :
 signal farmers_updated(new_value : int)
 
 
-var _human_pawns : int = 1
+var _human_pawns : int = 2
 var _undead_pawns : int = 1
 
 var _farmers : int = 0

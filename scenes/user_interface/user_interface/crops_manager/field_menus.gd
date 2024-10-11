@@ -16,12 +16,14 @@ func _update_fields(remote_count : int) -> void :
 	var counter : int = 1
 	
 	for option_button : OptionButton in nodes : 
-		if counter < remote_count :
+		if counter > remote_count :
 			option_button.visible = false
 			option_button.select(-1)
 		
 		else :
 			option_button.visible = true
+		
+		counter += 1
 
 
 func _on_farmers_updated(new_value : int) -> void : 

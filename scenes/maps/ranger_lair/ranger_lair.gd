@@ -12,8 +12,7 @@ var _pawn_spawn_points : Array[Vector2i] = [
 
 
 func _ready() -> void :
-	CropsManager.ref.spawned_pawn.connect(_on_spawned_pawn)
-	CropsManager.ref.fired_pawn.connect(_on_fired_pawn)
+	PawnManager.ref.farmers_updated.connect(_on_farmers_updated)
 
 
 func fire_pawn() -> void :
@@ -32,9 +31,18 @@ func spawn_pawn() -> void :
 	%Pawns.add_child(node)
 
 
-func _on_spawned_pawn() -> void : 
-	spawn_pawn()
+func synchronise_pawns(remote_farmers : int) -> void : 
+	var local_farmers : int = %Pawns.get_children().size()
+	var difference : int = remote_farmers - local_farmers
+	
+	if difference > 0 : 
+		for i : int in range(0, difference) : 
+			spawn_pawn()
+	
+	if difference < 0 : 
+		for i : int in range(0, abs(difference)) : 
+			fire_pawn()
 
 
-func _on_fired_pawn() -> void :
-	fire_pawn()
+func _on_farmers_updated(new_value : int) -> void :
+	synchronise_pawns(new_value)

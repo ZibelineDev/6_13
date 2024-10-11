@@ -69,7 +69,7 @@ text = "-"
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
-text = "1
+text = "0
 "
 
 [node name="AssignButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/AssignWorkers"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cugvd613165k1"]
+
+[ext_resource type="Texture2D" uid="uid://d11hsh8avi5xh" path="res://assets/props/book.png" id="1_6yp0a"]
+[ext_resource type="Script" path="res://scenes/props/book/book.gd" id="1_lxyfk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7id8g"]
+
+[node name="Book" type="StaticBody2D"]
+script = ExtResource("1_lxyfk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture = ExtResource("1_6yp0a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7id8g")

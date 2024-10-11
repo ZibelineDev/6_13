@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://ctwnejp040t4s"]
+
+[ext_resource type="FontFile" uid="uid://c80l865ht2pdv" path="res://assets/fonts/Elfium.pfb" id="1_yu0vm"]
+[ext_resource type="StyleBox" uid="uid://bjuey3ard1m11" path="res://assets/themes/panel_stylebox_flat.tres" id="2_lqwps"]
+
+[resource]
+Label/fonts/font = ExtResource("1_yu0vm")
+Panel/styles/panel = ExtResource("2_lqwps")
+PanelContainer/styles/panel = ExtResource("2_lqwps")

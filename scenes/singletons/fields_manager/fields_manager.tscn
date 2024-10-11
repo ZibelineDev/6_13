@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqe1h2flwooe5"]
+
+[ext_resource type="Script" path="res://scenes/singletons/fields_manager/fields_manager.gd" id="1_bwvli"]
+
+[node name="FieldsManager" type="Node"]
+script = ExtResource("1_bwvli")

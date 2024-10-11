@@ -26,7 +26,7 @@ func create_human_pawn() -> void :
 func available_human_pawns() -> int : 
 	var available_pawns : int = _human_pawns
 	
-	_human_pawns -= _farmers
+	available_pawns -= _farmers
 	
 	return available_pawns
 

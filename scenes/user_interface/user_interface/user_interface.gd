@@ -18,6 +18,9 @@ func _input(event : InputEvent) -> void :
 	if is_active() : 
 		if event.is_action_pressed("escape") : 
 			close_book()
+	
+	if event.is_action_pressed("character_switch") : 
+		Root.ref.switch_scene()
 
 
 func open_book() -> void : 

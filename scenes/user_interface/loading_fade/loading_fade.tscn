@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqohv7urms56f"]
+
+[ext_resource type="Script" path="res://scenes/user_interface/loading_fade/loading_fade.gd" id="1_2wn20"]
+
+[node name="LoadingFade" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_2wn20")
+
+[node name="Veil" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)

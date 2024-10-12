@@ -8,6 +8,8 @@ var _pawn_scene : PackedScene = preload("res://scenes/characters/pawn/pawn.tscn"
 var _pawn_spawn_points : Array[Vector2i] = [
 	Vector2i(-5, -2),
 	Vector2i(-9, -2),
+	Vector2i(-9, 2), 
+	Vector2i(-5, 2),
 ]
 
 

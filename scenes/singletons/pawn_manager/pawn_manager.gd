@@ -72,6 +72,9 @@ func manage_farmers(assign : bool = true) -> Error :
 		if available_human_pawns() <= 0 : 
 			return FAILED
 		
+		if _farmers >= 4 :
+			return FAILED
+		
 		_farmers += 1 
 	
 	else : 
@@ -101,12 +104,12 @@ func _feed_pawns() -> void :
 func _check_for_pawn_creation() -> void :
 	var food : int = ResourceManager.ref.get_food()
 	
-	if food >= [10, 50, 250][int(_human_pawns - 1)] :
+	if food >= [10, 15, 25, 500][int(_human_pawns - 1)] :
 		print("Enough food to create a pawn")
 		create_human_pawn()
 	
 	else : 
-		var target : int = [10, 50, 250][int(_human_pawns - 1)]
+		var target : int = [10, 50, 250, 500][int(_human_pawns - 1)]
 		print("Next pawn : %s/%s" %[food, target])
 
 

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CropResource" load_steps=4 format=3 uid="uid://b8ebm303f615g"]
+
+[ext_resource type="Script" path="res://scripts/abstracts/crop_resource.gd" id="1_4dnss"]
+[ext_resource type="Texture2D" uid="uid://0tdt8jnt8raw" path="res://assets/props/crops/pumpkin_seed.png" id="1_gjhpu"]
+[ext_resource type="SpriteFrames" uid="uid://ce71824wak632" path="res://assets/props/crops/pumpkin.tres" id="3_6fw6i"]
+
+[resource]
+script = ExtResource("1_4dnss")
+index = 0
+name = "Pumpkin"
+icon = ExtResource("1_gjhpu")
+sprites_frame = ExtResource("3_6fw6i")
+growth_time = 2.0
+crop_yield = 25

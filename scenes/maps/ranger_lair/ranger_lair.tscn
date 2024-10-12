@@ -43,5 +43,9 @@ collision_mask = 0
 [node name="CropField" parent="CropFields" instance=ExtResource("5_116rs")]
 position = Vector2(-40, -16)
 
+[node name="CropField2" parent="CropFields" instance=ExtResource("5_116rs")]
+position = Vector2(-72, -16)
+_index = 1
+
 [node name="Pawns" type="Node2D" parent="."]
 unique_name_in_owner = true

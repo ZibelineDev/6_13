@@ -1,6 +1,10 @@
-[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://ce71824wak632"]
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://ce71824wak632"]
 
 [ext_resource type="Texture2D" uid="uid://cb7fh45qkw7l5" path="res://assets/tilemaps/farm/crops.png" id="1_vb2w7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8euh"]
+atlas = ExtResource("1_vb2w7")
+region = Rect2(0, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnm3w"]
 atlas = ExtResource("1_vb2w7")
@@ -24,7 +28,10 @@ region = Rect2(48, 8, 8, 8)
 
 [resource]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8euh")
+}],
 "loop": true,
 "name": &"stage_0",
 "speed": 5.0

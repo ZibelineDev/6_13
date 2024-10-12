@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c73di1fb2vd1l"]
+
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/field_selector/field_selector.gd" id="1_60dqn"]
+
+[node name="FieldSelector" type="OptionButton"]
+custom_minimum_size = Vector2(0, 40)
+focus_mode = 0
+script = ExtResource("1_60dqn")

@@ -12,18 +12,22 @@ func _init() -> void :
 
 signal population_updated(new_value : int)
 signal farmers_updated(new_value : int)
-signal undead_population_updated(new_vale : int)
+signal undead_population_updated(new_value : int)
 
 
 var _human_pawns : int = 2
-@warning_ignore("unused_private_class_variable")
-var _undead_pawns : int = 0
+var _undead_pawns : Array[UndeadPawnResource] = []
 
 var _farmers : int = 0
 
 
 func _ready() -> void :
 	(%FoodCycle as Timer).timeout.connect(_on_food_cycle_timeout)
+
+
+func _process(delta : float) -> void :
+	if get_undead_population() :
+		progress_undead_lifespan(delta)
 
 
 func create_human_pawn() -> void : 
@@ -133,9 +137,28 @@ func _on_food_cycle_timeout() -> void :
 
 
 func create_undead_pawn() -> void :
-	_undead_pawns += 1 
-	undead_population_updated.emit(_undead_pawns)
+	_undead_pawns.append(UndeadPawnResource.new())
+	undead_population_updated.emit(get_undead_population())
 
 
 func get_undead_population() -> int :
-	return _undead_pawns
+	return _undead_pawns.size()
+
+
+func progress_undead_lifespan(delta : float) -> void :
+	var to_dissipate : Array[UndeadPawnResource] = []
+	
+	for undead : UndeadPawnResource in _undead_pawns : 
+		undead.progress(delta)
+		if undead.should_dissipate : 
+			to_dissipate.append(undead)
+	
+	if to_dissipate.size() == 0 : 
+		return 
+	
+	for undead : UndeadPawnResource in to_dissipate :
+		_undead_pawns.erase(undead)
+	
+	undead_population_updated.emit(get_undead_population())
+	
+	to_dissipate.clear()

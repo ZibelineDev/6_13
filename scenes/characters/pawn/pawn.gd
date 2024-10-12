@@ -6,7 +6,7 @@ const SPEED : float = 5.0
 
 
 var _last_direction_key : int = 2
-
+var _spawn_position : Vector2
 
 var _current_state : PawnStateAbstract
 
@@ -24,6 +24,8 @@ func _ready() -> void :
 	
 	_current_state = state_idle
 	_current_state.enter_state()
+	
+	_spawn_position = position
 	
 
 

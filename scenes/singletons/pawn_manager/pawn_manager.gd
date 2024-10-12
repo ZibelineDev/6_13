@@ -68,6 +68,10 @@ func available_human_pawns() -> int :
 	return available_pawns
 
 
+func get_farmers() -> int : 
+	return _farmers
+
+
 func manage_farmers(assign : bool = true) -> Error : 
 	if assign : 
 		if available_human_pawns() <= 0 : 

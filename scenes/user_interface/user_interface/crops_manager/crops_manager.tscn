@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bw02pnmwjral5"]
+[gd_scene load_steps=6 format=3 uid="uid://bw02pnmwjral5"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/crops_manager.gd" id="1_ykg0h"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/field_menus.gd" id="2_51o7i"]
 [ext_resource type="PackedScene" uid="uid://c73di1fb2vd1l" path="res://scenes/user_interface/user_interface/crops_manager/field_selector/field_selector.tscn" id="3_oyduh"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/population_label.gd" id="4_hxpgc"]
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/reserve_label.gd" id="5_de1gu"]
 
 [node name="CropsManager" type="Control"]
 layout_mode = 3
@@ -130,6 +131,7 @@ layout_mode = 2
 size_flags_horizontal = 10
 text = "125 Food in the Stockpile"
 horizontal_alignment = 2
+script = ExtResource("5_de1gu")
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

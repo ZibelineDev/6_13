@@ -20,7 +20,7 @@ enum Scenes {
 
 const SKIP_INTRO : bool = true
 
-@export var test : PackedScene
+@export var vampire_lair : PackedScene
 @export var ranger_lair : PackedScene
 @export var intro_hill : PackedScene
 
@@ -47,7 +47,7 @@ func _instantiate_ranger() -> void :
 
 func _instantiate_vampire() -> void : 
 	_remove_current_scene()
-	var node : Node = test.instantiate()
+	var node : Node = vampire_lair.instantiate()
 	
 	_current_scene_ref = node
 	node.name = "Vampire"

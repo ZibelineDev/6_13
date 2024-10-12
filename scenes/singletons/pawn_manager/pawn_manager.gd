@@ -12,6 +12,7 @@ func _init() -> void :
 
 signal population_updated(new_value : int)
 signal farmers_updated(new_value : int)
+signal undead_population_updated(new_vale : int)
 
 
 var _human_pawns : int = 1
@@ -104,12 +105,12 @@ func _feed_pawns() -> void :
 func _check_for_pawn_creation() -> void :
 	var food : int = ResourceManager.ref.get_food()
 	
-	if food >= [10, 15, 25, 500][int(_human_pawns - 1)] :
+	if food >= [10, 25, 50, 500][int(_human_pawns - 1)] :
 		print("Enough food to create a pawn")
 		create_human_pawn()
 	
 	else : 
-		var target : int = [10, 50, 250, 500][int(_human_pawns - 1)]
+		var target : int = [10, 25, 50, 500][int(_human_pawns - 1)]
 		print("Next pawn : %s/%s" %[food, target])
 
 
@@ -125,3 +126,12 @@ func _check_for_pawn_consumption() -> void :
 
 func _on_food_cycle_timeout() -> void :
 	_feed_pawns()
+
+
+func create_undead_pawn() -> void :
+	_undead_pawns += 1 
+	undead_population_updated.emit(_undead_pawns)
+
+
+func get_undead_population() -> int :
+	return _undead_pawns

@@ -2,27 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/user_interface.gd" id="1_eengl"]
 [ext_resource type="PackedScene" uid="uid://bw02pnmwjral5" path="res://scenes/user_interface/user_interface/crops_manager/crops_manager.tscn" id="2_rbu8r"]
-
-[sub_resource type="GDScript" id="GDScript_6gg6n"]
-script/source = "extends Label
-
-
-func _ready() -> void :
-	ResourceManager.ref.food_updated.connect(_on_food_updated)
-	_update_text()
-
-
-func _update_text(new_value : int = -1) -> void :
-	if new_value == -1 :
-		text = \"Food : %s\" %ResourceManager.ref.get_food()
-	
-	else :
-		text = \"Food : %s\" %new_value
-
-
-func _on_food_updated(new_value : int) -> void :
-	_update_text(new_value)
-"
+[ext_resource type="PackedScene" uid="uid://bipfwbuj7ibc" path="res://scenes/user_interface/user_interface/snatching_menu/snatching_menu.tscn" id="3_fexuy"]
 
 [node name="UserInterface" type="CanvasLayer"]
 script = ExtResource("1_eengl")
@@ -45,17 +25,8 @@ layout_mode = 2
 [node name="CropsManager" parent="." instance=ExtResource("2_rbu8r")]
 visible = false
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 16
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 16
-
-[node name="Food" type="Label" parent="MarginContainer"]
-layout_mode = 2
-script = SubResource("GDScript_6gg6n")
+[node name="SnatchingMenu" parent="." instance=ExtResource("3_fexuy")]
+visible = false
 
 [node name="OnBreakLabel" type="Label" parent="."]
 visible = false

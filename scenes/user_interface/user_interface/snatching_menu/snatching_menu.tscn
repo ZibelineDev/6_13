@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://bipfwbuj7ibc"]
+
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/snatching_menu.gd" id="1_j78gr"]
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/human_population.gd" id="2_tsqxl"]
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/undead_population.gd" id="3_0c4kc"]
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/progress_bar.gd" id="4_5xk0k"]
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/snatch_button.gd" id="5_xyt5p"]
+
+[node name="SnatchingMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j78gr")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Soul Snatch"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HumanPopulation" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Human Population : 2"
+script = ExtResource("2_tsqxl")
+
+[node name="IdleHumans" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Idle Humans : 0"
+
+[node name="UndeadPopulation" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Undead Population :  0 "
+script = ExtResource("3_0c4kc")
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+show_percentage = false
+script = ExtResource("4_5xk0k")
+
+[node name="SnatchButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+text = "Snatch a Soul"
+script = ExtResource("5_xyt5p")

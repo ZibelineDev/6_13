@@ -11,8 +11,8 @@ func _init() -> void :
 var _current_menu : UIMenu
 
 
-@onready var book : Control = $Book
 @onready var crops_manager : UIMenu = $CropsManager
+@onready var snatching_menu : UIMenu = $SnatchingMenu
 
 
 func _input(event : InputEvent) -> void :
@@ -21,17 +21,27 @@ func _input(event : InputEvent) -> void :
 			_current_menu.close()
 	
 	if event.is_action_pressed("character_switch") : 
+		close_menu()
 		Root.ref.switch_scene()
 
 
-func open_book() -> void : 
-	book.visible = true
-	_current_menu = book
+func close_menu() -> void :
+	if _current_menu : 
+		_current_menu.close()
 
 
 func open_crops_manager() -> void : 
+	close_menu()
+	
 	crops_manager.visible = true
 	_current_menu = crops_manager
+
+
+func open_snatching_menu() -> void :
+	close_menu()
+	
+	snatching_menu.visible = true
+	_current_menu = snatching_menu
 
 
 func ui_element_closed() -> void : 

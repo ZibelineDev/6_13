@@ -42,7 +42,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_type_variation = &"HeaderSmall"
+theme_override_font_sizes/font_size = 24
 text = "Manage Farmers"
 horizontal_alignment = 1
 

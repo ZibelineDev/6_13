@@ -13,7 +13,7 @@ func _init() -> void :
 signal food_updated(new_value : int)
 
 
-var _food : int = 0
+var _food : int = 500
 
 
 func create_food(quantity : int) -> Error :

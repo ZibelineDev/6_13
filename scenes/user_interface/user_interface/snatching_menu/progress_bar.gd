@@ -17,8 +17,8 @@ func _reset() -> void :
 	
 
 
-func _on_snatching_progressed(progress : float, max_value : float) -> void :
-	_progress(progress, max_value)
+func _on_snatching_progressed(progress : float, _max_value : float) -> void :
+	_progress(progress, _max_value)
 
 
 func _on_snatching_stopped() -> void :

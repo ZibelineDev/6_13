@@ -15,7 +15,7 @@ signal farmers_updated(new_value : int)
 signal undead_population_updated(new_vale : int)
 
 
-var _human_pawns : int = 1
+var _human_pawns : int = 2
 @warning_ignore("unused_private_class_variable")
 var _undead_pawns : int = 0
 

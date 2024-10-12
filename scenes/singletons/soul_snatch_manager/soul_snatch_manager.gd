@@ -31,7 +31,7 @@ func _process(delta : float) -> void :
 
 
 func can_snatch_soul() -> bool : 
-	return PawnManager.ref.can_consume_pawn()
+	return PawnManager.ref.can_consume_pawn() and not _is_snatching
 
 
 func start_snatching() -> Error :

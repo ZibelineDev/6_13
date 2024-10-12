@@ -4,3 +4,8 @@
 
 [node name="PawnManager" type="Node"]
 script = ExtResource("1_gr00d")
+
+[node name="FoodCycle" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+autostart = true

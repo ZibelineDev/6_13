@@ -11,6 +11,7 @@ func _init() -> void :
 
 
 signal field_updated(index : int, crop : CropResource)
+@warning_ignore("unused_signal")
 signal field_grew(index : int, stage : int)
 
 

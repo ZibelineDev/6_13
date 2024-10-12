@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw02pnmwjral5"]
+[gd_scene load_steps=5 format=3 uid="uid://bw02pnmwjral5"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/crops_manager.gd" id="1_ykg0h"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/field_menus.gd" id="2_51o7i"]
 [ext_resource type="PackedScene" uid="uid://c73di1fb2vd1l" path="res://scenes/user_interface/user_interface/crops_manager/field_selector/field_selector.tscn" id="3_oyduh"]
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/population_label.gd" id="4_hxpgc"]
 
 [node name="CropsManager" type="Control"]
 layout_mode = 3
@@ -39,6 +40,7 @@ theme_override_constants/margin_bottom = 16
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -86,6 +88,7 @@ text = "+"
 
 [node name="FieldMenus" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 16
 script = ExtResource("2_51o7i")
 
@@ -103,3 +106,66 @@ index = 2
 [node name="FieldSelector4" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FieldMenus" instance=ExtResource("3_oyduh")]
 layout_mode = 2
 index = 3
+
+[node name="Stats" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="UpkeepCost" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "25 per cycle"
+horizontal_alignment = 2
+
+[node name="Stats2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Population" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Stats2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Population : 2 "
+script = ExtResource("4_hxpgc")
+
+[node name="Reserve" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Stats2"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "125 Food in the Stockpile"
+horizontal_alignment = 2
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+text = "Send food to the undeads"
+fit_content = true
+
+[node name="Button" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "-"
+
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="Button2" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "+"
+
+[node name="Button3" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Send"

@@ -11,4 +11,4 @@ name = "Pumpkin"
 icon = ExtResource("1_gjhpu")
 sprites_frame = ExtResource("3_6fw6i")
 growth_time = 2.0
-crop_yield = 25
+crop_yield = 12

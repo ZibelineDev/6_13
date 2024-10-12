@@ -34,5 +34,5 @@ func update_field(index : int, crop_index : int) -> void :
 	field_updated.emit(index, crop)
 
 
-func yield_crops(index : int) -> void :
-	print("Crops harvested.")
+func yield_crops(crop : CropResource) -> void :
+	ResourceManager.ref.create_food(crop.crop_yield)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://g6bqas46atud"]
+[gd_scene load_steps=10 format=3 uid="uid://g6bqas46atud"]
 
 [ext_resource type="PackedScene" uid="uid://cnh8co2y0d4ns" path="res://scenes/maps/test/test.tscn" id="1_a1j0m"]
 [ext_resource type="Script" path="res://scenes/root/root.gd" id="1_r70vg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c6mrason1xc02" path="res://scenes/singletons/pawn_manager/pawn_manager.tscn" id="5_4c7lh"]
 [ext_resource type="PackedScene" uid="uid://bqe1h2flwooe5" path="res://scenes/singletons/fields_manager/fields_manager.tscn" id="6_1fxax"]
 [ext_resource type="PackedScene" uid="uid://d264vci7qghlm" path="res://scenes/maps/intro_hills/intro_hills.tscn" id="6_kc5u0"]
+[ext_resource type="PackedScene" uid="uid://qg8st3vsrxmq" path="res://scenes/singletons/resource_manager/resource_manager.tscn" id="7_t3wyo"]
 
 [node name="Root" type="Node"]
 script = ExtResource("1_r70vg")
@@ -20,6 +21,8 @@ intro_hill = ExtResource("6_kc5u0")
 [node name="PawnManager" parent="Managers" instance=ExtResource("5_4c7lh")]
 
 [node name="FieldsManager" parent="Managers" instance=ExtResource("6_1fxax")]
+
+[node name="ResourceManager" parent="Managers" instance=ExtResource("7_t3wyo")]
 
 [node name="LoadingFade" parent="." instance=ExtResource("3_eso5h")]
 

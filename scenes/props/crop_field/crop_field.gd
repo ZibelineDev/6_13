@@ -59,6 +59,7 @@ func _grow_crops() -> void :
 	_growth_stage += 1 
 	
 	if _growth_stage > 5 :
+		_yield_crops()
 		_growth_stage = 1
 		
 	_update_animation()
@@ -92,6 +93,10 @@ func _update_crop(crop : CropResource) -> void :
 	
 	else : 
 		pause()
+
+
+func _yield_crops() -> void : 
+	FieldsManager.ref.yield_crops(_crop)
 
 
 func _on_field_updated(index : int, crop : CropResource) -> void : 

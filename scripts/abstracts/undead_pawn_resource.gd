@@ -2,7 +2,7 @@ class_name UndeadPawnResource
 extends Resource
 
 
-var lifespan : float = 10.0
+var lifespan : float = 60.0
 var life_progression : float = 0.0
 
 var production_value : int = 5

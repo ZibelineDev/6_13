@@ -113,12 +113,12 @@ func _feed_pawns() -> void :
 func _check_for_pawn_creation() -> void :
 	var food : int = ResourceManager.ref.get_food()
 	
-	if food >= [10, 25, 50, 500][int(_human_pawns - 1)] :
+	if food >= [10, 25, 50, 100, 250, 500, 1000, 5000][int(_human_pawns - 1)] :
 		print("Enough food to create a pawn")
 		create_human_pawn()
 	
 	else : 
-		var target : int = [10, 25, 50, 500][int(_human_pawns - 1)]
+		var target : int = [10, 25, 50, 100, 250, 500, 1000, 5000][int(_human_pawns - 1)]
 		print("Next pawn : %s/%s" %[food, target])
 
 

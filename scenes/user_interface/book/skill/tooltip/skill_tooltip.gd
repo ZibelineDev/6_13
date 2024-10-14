@@ -6,9 +6,9 @@ var _skill : Skill
 
 
 func _update_controls() -> void :
-	($Header as Label).text = _skill.get_header()
-	($Description as RichTextLabel).text = "[center]%s[/center]" %_skill.get_description()
-	($SoullEssenceCost as Label).text = "Soul Essence Cost : %s" %_skill.get_cost()
+	(%Header as Label).text = _skill.get_header()
+	(%Description as RichTextLabel).text = "[center]%s[/center]" %_skill.get_description()
+	(%SoullEssenceCost as Label).text = "Soul Essence Cost : %s" %_skill.get_cost()
 
 
 func set_skill_name(skill_name : String ) -> void : 

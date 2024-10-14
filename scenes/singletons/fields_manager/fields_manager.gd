@@ -13,12 +13,15 @@ func _init() -> void :
 signal field_updated(index : int, crop : CropResource)
 @warning_ignore("unused_signal")
 signal field_grew(index : int, stage : int)
+@warning_ignore("unused_signal")
+signal available_crops_updated
 
 
 var _fields : Array[Field] 
 
 var crops : Array[CropResource] = [
-	preload("res://assets/resources/crops/pumpkin.tres")
+	preload("res://assets/resources/crops/pumpkin.tres"),
+	preload("res://assets/resources/crops/eggplant.tres"),
 ]
 
 
@@ -51,15 +54,21 @@ func update_field(index : int, crop_index : int) -> void :
 		_fields[index].crop = null
 		_fields[index].paused = true
 		_fields[index].growth_stage = 0
+		
 		crop = null
 	
 	else : 
 		crop = crops[crop_index]
-		_fields[index].crop = crop
-		_fields[index].paused = false
-		_fields[index].growth_stage = 1
-	
-	_fields[index].delta = 0
+		
+		if _fields[index].crop == crop : 
+			return
+		
+		else :
+			_fields[index].crop = crop
+			_fields[index].paused = false
+			_fields[index].growth_stage = 1
+			_fields[index].delta = 0
+			
 	
 	field_updated.emit(index, crop)
 

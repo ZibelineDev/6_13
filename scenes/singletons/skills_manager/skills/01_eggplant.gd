@@ -16,3 +16,7 @@ func get_cost() -> int :
 
 func get_icon() -> Texture2D : 
 	return preload("res://assets/props/crops/eggplant.png")
+
+
+func _on_purchased() -> void : 
+	FieldsManager.ref.available_crops_updated.emit()

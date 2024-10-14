@@ -36,5 +36,10 @@ func purchase() -> Error :
 	
 	_purchased = true
 	purchased.emit()
+	_on_purchased()
 	
 	return OK
+
+
+func _on_purchased() -> void :
+	pass

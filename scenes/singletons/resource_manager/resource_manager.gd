@@ -52,7 +52,7 @@ func get_food() -> int :
 signal soul_essence_updated(new_value : int)
 
 
-var _soul_essence : int = 0
+var _soul_essence : int = 25
 
 
 func create_soul_essence(quantity : int) -> Error : 

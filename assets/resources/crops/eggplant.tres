@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CropResource" load_steps=4 format=3 uid="uid://bkfnh5y4j3rhy"]
+
+[ext_resource type="Texture2D" uid="uid://cjkfvl20vhufu" path="res://assets/props/crops/eggplant_seed.png" id="1_div7a"]
+[ext_resource type="Script" path="res://scripts/abstracts/crop_resource.gd" id="2_5gcps"]
+[ext_resource type="SpriteFrames" uid="uid://cnhcvq3ap5qqg" path="res://assets/props/crops/eggplant_animation.tres" id="3_t6jhg"]
+
+[resource]
+script = ExtResource("2_5gcps")
+index = 1
+name = "Eggplant"
+icon = ExtResource("1_div7a")
+sprites_frame = ExtResource("3_t6jhg")
+growth_time = 3.0
+crop_yield = 30

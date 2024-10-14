@@ -18,12 +18,14 @@ layout_mode = 2
 theme_override_constants/separation = 16
 
 [node name="Header" type="Label" parent="SkillTooltip"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Header"
 horizontal_alignment = 1
 
 [node name="Description" type="RichTextLabel" parent="SkillTooltip"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 bbcode_enabled = true
@@ -31,6 +33,7 @@ text = "[center]Description[/center]"
 fit_content = true
 
 [node name="SoullEssenceCost" type="Label" parent="SkillTooltip"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Cost : 5"
 horizontal_alignment = 1

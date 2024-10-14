@@ -44,14 +44,12 @@ theme_override_font_sizes/font_size = 24
 text = "Research Book"
 horizontal_alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Skills" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" instance=ExtResource("2_mp0xu")]
+[node name="Skills" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("2_mp0xu")]
+custom_minimum_size = Vector2(0, 0)
 layout_mode = 2
 
 [node name="SoulEssence" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "Soull Essence : 5"
 horizontal_alignment = 1
 script = ExtResource("2_aquxa")

@@ -63,7 +63,7 @@ func _make_custom_tooltip(_for_text : String) -> Object :
 		"res://scenes/user_interface/book/skill/tooltip/skill_tooltip.tscn"
 	)
 	
-	var node : Node = scene.instantiate() as SkillTooltip
+	var node : SkillTooltip = scene.instantiate() as SkillTooltip
 	node.set_skill_name(skill_name)
 	
 	return node

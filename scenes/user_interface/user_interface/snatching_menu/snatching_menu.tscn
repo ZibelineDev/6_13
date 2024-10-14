@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bipfwbuj7ibc"]
+[gd_scene load_steps=8 format=3 uid="uid://bipfwbuj7ibc"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/snatching_menu.gd" id="1_j78gr"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/human_population.gd" id="2_tsqxl"]
@@ -6,6 +6,29 @@
 [ext_resource type="Script" path="res://scripts/utils/labels/soul_essence.gd" id="4_2odmd"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/progress_bar.gd" id="4_5xk0k"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/snatch_button.gd" id="5_xyt5p"]
+
+[sub_resource type="GDScript" id="GDScript_hyr8y"]
+script/source = "extends Label
+
+
+func _ready() -> void :
+	_update()
+	SoulSnatchManager.ref.min_population_snatched_updated.connect(
+		_on_min_soul_snatch_population_updated
+	)
+
+
+func _update(new_value : int = -1) -> void :
+	if new_value == -1 :
+		text = \"%s\" %SoulSnatchManager.ref.get_min_population_snatch()
+	
+	else :
+		text = \"%s\" %new_value
+
+
+func _on_min_soul_snatch_population_updated(new_value : int) -> void :
+	_update(new_value)
+"
 
 [node name="SnatchingMenu" type="Control"]
 layout_mode = 3
@@ -37,9 +60,7 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
@@ -89,3 +110,47 @@ layout_mode = 2
 focus_mode = 0
 text = "Snatch a Soul"
 script = ExtResource("5_xyt5p")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AutoSnatchLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Automatically Snatch Souls"
+
+[node name="AutoSnatchCheckBox" type="CheckBox" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MinPop" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Minimum Population "
+
+[node name="PopDecrease" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+focus_mode = 0
+text = "-"
+
+[node name="MinPopIndicator" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1"
+script = SubResource("GDScript_hyr8y")
+
+[node name="PopIncrease" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+focus_mode = 0
+text = "+"

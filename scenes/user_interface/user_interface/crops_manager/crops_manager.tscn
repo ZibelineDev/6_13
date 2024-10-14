@@ -15,7 +15,7 @@ func _ready() -> void :
 	PawnManager.ref.population_updated.connect(_on_population_updated)
 
 
-func _update(new_value : int = -1) -> void :
+func _update(_new_value : int = -1) -> void :
 	text = \"%s food consumed\" %PawnManager.ref.calculate_food_consumption()
 
 

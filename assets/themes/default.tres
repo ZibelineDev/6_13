@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=7 format=3 uid="uid://ctwnejp040t4s"]
 
 [ext_resource type="FontFile" uid="uid://c80l865ht2pdv" path="res://assets/fonts/Elfium.pfb" id="1_yu0vm"]
-[ext_resource type="StyleBox" uid="uid://bjuey3ard1m11" path="res://assets/themes/panel_stylebox_flat.tres" id="2_lqwps"]
+[ext_resource type="StyleBox" uid="uid://dh7bxnxuppmmk" path="res://assets/themes/panel_texture.tres" id="2_y55lf"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_5ftbk"]
 
@@ -15,8 +15,8 @@
 Button/fonts/font = ExtResource("1_yu0vm")
 Label/fonts/font = ExtResource("1_yu0vm")
 OptionButton/fonts/font = ExtResource("1_yu0vm")
-Panel/styles/panel = ExtResource("2_lqwps")
-PanelContainer/styles/panel = ExtResource("2_lqwps")
+Panel/styles/panel = ExtResource("2_y55lf")
+PanelContainer/styles/panel = ExtResource("2_y55lf")
 PopupMenu/fonts/font = ExtResource("1_yu0vm")
 PopupMenu/icons/radio_checked = SubResource("ImageTexture_5ftbk")
 PopupMenu/icons/radio_checked_disabled = SubResource("ImageTexture_tcrm7")

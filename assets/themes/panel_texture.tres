@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dh7bxnxuppmmk"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_afoun"]
+load_path = "res://.godot/imported/panel.png-6bd085c725184372e05f7287fc19fd19.ctex"
+
+[resource]
+texture = SubResource("CompressedTexture2D_afoun")
+texture_margin_left = 8.0
+texture_margin_top = 35.0
+texture_margin_right = 10.0
+texture_margin_bottom = 39.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(0, 0, 47, 47)

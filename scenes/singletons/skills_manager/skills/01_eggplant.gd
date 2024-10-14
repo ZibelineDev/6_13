@@ -6,7 +6,7 @@ func get_header() -> String :
 	return "Eggplants"
 
 
-func description() -> String : 
+func get_description() -> String : 
 	return "Unlocks eggplants.\nMore efficient than pumpkins."
 
 

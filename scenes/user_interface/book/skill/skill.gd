@@ -56,3 +56,14 @@ func _update_modulate(color : Color) -> void :
 
 func _on_pressed() -> void :
 	_try_to_purchase()
+
+
+func _make_custom_tooltip(_for_text : String) -> Object :
+	var scene : PackedScene = preload(
+		"res://scenes/user_interface/book/skill/tooltip/skill_tooltip.tscn"
+	)
+	
+	var node : Node = scene.instantiate() as SkillTooltip
+	node.set_skill_name(skill_name)
+	
+	return node

@@ -17,6 +17,7 @@ offset_right = 16.0
 offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
+tooltip_text = "Skill"
 script = ExtResource("1_u8hf1")
 
 [node name="Background" type="TextureRect" parent="."]

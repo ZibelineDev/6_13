@@ -96,12 +96,12 @@ func manage_farmers(assign : bool = true) -> Error :
 	return OK
 
 
-func _calculate_food_consumption() -> int :
+func calculate_food_consumption() -> int :
 	return _human_pawns * 5
 
 
 func _feed_pawns() -> void :
-	var consumpion : int = _calculate_food_consumption()
+	var consumpion : int = calculate_food_consumption()
 	var error : Error = ResourceManager.ref.consume_food(consumpion, true)
 	
 	if error : 

@@ -12,4 +12,3 @@ texture_margin_bottom = 39.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 region_rect = Rect2(0, 0, 47, 47)
-modulate_color = Color(1, 1, 1, 0.784314)

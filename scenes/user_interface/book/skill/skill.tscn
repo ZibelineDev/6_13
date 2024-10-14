@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://v2wcjdm5648t"]
+
+[ext_resource type="Texture2D" uid="uid://ckys621v77ht3" path="res://assets/user_interface/book/skill_background.png" id="1_ceh5q"]
+[ext_resource type="Script" path="res://scenes/user_interface/book/skill/skill.gd" id="1_u8hf1"]
+
+[node name="Skill" type="TextureButton"]
+modulate = Color(0.666667, 0.666667, 0.666667, 1)
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u8hf1")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ceh5q")
+
+[node name="Icon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2

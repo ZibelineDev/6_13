@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqcfvjnhnkv40"]
+
+[ext_resource type="PackedScene" uid="uid://v2wcjdm5648t" path="res://scenes/user_interface/book/skill/skill.tscn" id="1_t3f6k"]
+
+[node name="Skills" type="Control"]
+custom_minimum_size = Vector2(768, 480)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Skill" parent="." instance=ExtResource("1_t3f6k")]
+layout_mode = 1
+skill_name = "S01Eggplant"

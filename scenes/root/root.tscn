@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://g6bqas46atud"]
+[gd_scene load_steps=12 format=3 uid="uid://g6bqas46atud"]
 
 [ext_resource type="Script" path="res://scenes/root/root.gd" id="1_r70vg"]
 [ext_resource type="PackedScene" uid="uid://b7de1soj2ai61" path="res://scenes/maps/ranger_lair/ranger_lair.tscn" id="2_0hqy8"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://d264vci7qghlm" path="res://scenes/maps/intro_hills/intro_hills.tscn" id="6_kc5u0"]
 [ext_resource type="PackedScene" uid="uid://qg8st3vsrxmq" path="res://scenes/singletons/resource_manager/resource_manager.tscn" id="7_t3wyo"]
 [ext_resource type="PackedScene" uid="uid://n063yy3ucjio" path="res://scenes/singletons/soul_snatch_manager/soul_snatch_manager.tscn" id="8_72fha"]
+[ext_resource type="PackedScene" uid="uid://cvhg3mcmg1kvo" path="res://scenes/singletons/skills_manager/skills_manager.tscn" id="9_dngoe"]
 
 [node name="Root" type="Node"]
 script = ExtResource("1_r70vg")
@@ -26,6 +27,8 @@ intro_hill = ExtResource("6_kc5u0")
 [node name="ResourceManager" parent="Managers" instance=ExtResource("7_t3wyo")]
 
 [node name="SoulSnatchManager" parent="Managers" instance=ExtResource("8_72fha")]
+
+[node name="SkillsManager" parent="Managers" instance=ExtResource("9_dngoe")]
 
 [node name="LoadingFade" parent="." instance=ExtResource("3_eso5h")]
 

@@ -11,6 +11,7 @@ func _init() -> void :
 var _current_menu : UIMenu
 
 
+@onready var book : UIMenu = $Book
 @onready var crops_manager : UIMenu = $CropsManager
 @onready var snatching_menu : UIMenu = $SnatchingMenu
 
@@ -28,6 +29,13 @@ func _input(event : InputEvent) -> void :
 func close_menu() -> void :
 	if _current_menu : 
 		_current_menu.close()
+
+
+func open_book() -> void :
+	close_menu()
+	
+	book.visible = true
+	_current_menu = book
 
 
 func open_crops_manager() -> void : 

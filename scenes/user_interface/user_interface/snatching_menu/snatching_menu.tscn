@@ -3,29 +3,9 @@
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/snatching_menu.gd" id="1_j78gr"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/human_population.gd" id="2_tsqxl"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/undead_population.gd" id="3_0c4kc"]
+[ext_resource type="Script" path="res://scripts/utils/labels/soul_essence.gd" id="4_2odmd"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/progress_bar.gd" id="4_5xk0k"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/snatch_button.gd" id="5_xyt5p"]
-
-[sub_resource type="GDScript" id="GDScript_27tbn"]
-script/source = "extends Label
-
-
-func _ready() -> void :
-	_update()
-	ResourceManager.ref.soul_essence_updated.connect(_on_soul_essence_updated)
-
-
-func _update(new_value : int = -1) -> void :
-	if new_value == -1 :
-		text = \"Soul Essence : %s\" %ResourceManager.ref.get_soul_essence()
-	
-	else :
-		text = \"Soul Essence : %s\" %new_value
-
-
-func _on_soul_essence_updated(new_value : int) -> void :
-	_update(new_value)
-"
 
 [node name="SnatchingMenu" type="Control"]
 layout_mode = 3
@@ -95,7 +75,7 @@ script = ExtResource("3_0c4kc")
 
 [node name="SoulEssence" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-script = SubResource("GDScript_27tbn")
+script = ExtResource("4_2odmd")
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 24)

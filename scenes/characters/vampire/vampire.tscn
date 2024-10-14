@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/player_raycast.gd" id="3_kli5v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_u4a4p"]
-radius = 6.0
+radius = 4.12311
 
 [node name="Vampire" type="CharacterBody2D"]
 script = ExtResource("1_sfb38")

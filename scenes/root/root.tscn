@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/root/root.gd" id="1_r70vg"]
 [ext_resource type="PackedScene" uid="uid://b7de1soj2ai61" path="res://scenes/maps/ranger_lair/ranger_lair.tscn" id="2_0hqy8"]
-[ext_resource type="PackedScene" uid="uid://dnqfo5pr6ychb" path="res://scenes/maps/vampire_lair/vampire_lair.tscn" id="2_1upsw"]
+[ext_resource type="PackedScene" uid="uid://cp77qklfmy1jk" path="res://scenes/maps/lich_lair/lich_lair.tscn" id="2_apedm"]
 [ext_resource type="PackedScene" uid="uid://gein4tuhwqtf" path="res://scenes/user_interface/user_interface/user_interface.tscn" id="2_i5r7h"]
 [ext_resource type="PackedScene" uid="uid://dqohv7urms56f" path="res://scenes/user_interface/loading_fade/loading_fade.tscn" id="3_eso5h"]
 [ext_resource type="PackedScene" uid="uid://c6mrason1xc02" path="res://scenes/singletons/pawn_manager/pawn_manager.tscn" id="5_4c7lh"]
@@ -14,7 +14,7 @@
 
 [node name="Root" type="Node"]
 script = ExtResource("1_r70vg")
-vampire_lair = ExtResource("2_1upsw")
+vampire_lair = ExtResource("2_apedm")
 ranger_lair = ExtResource("2_0hqy8")
 intro_hill = ExtResource("6_kc5u0")
 

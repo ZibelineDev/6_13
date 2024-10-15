@@ -35,8 +35,9 @@ func _on_timer_timeout() -> void :
 
 func _set_random_direction() -> void :
 	var _direction : Vector2
-	if (context.position - context._spawn_position).length() > 16 :
-		_direction = (context._spawn_position - context.position)
+	var spawn_position : Vector2 = context.get_spawn_point() * 8
+	if (context.position - spawn_position).length() > 16 :
+		_direction = (spawn_position - context.position)
 	else :
 		_direction= Vector2(randf_range(-1, 1), randf_range(-1, 1))
 	direction = _direction.normalized()

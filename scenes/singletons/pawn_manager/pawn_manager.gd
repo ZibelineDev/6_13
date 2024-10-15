@@ -162,3 +162,7 @@ func progress_undead_lifespan(delta : float) -> void :
 	undead_population_updated.emit(get_undead_population())
 	
 	to_dissipate.clear()
+
+
+func get_undead_pawns() -> Array[UndeadPawnResource] : 
+	return _undead_pawns

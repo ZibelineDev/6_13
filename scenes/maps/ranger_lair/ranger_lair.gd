@@ -28,9 +28,9 @@ func fire_pawn() -> void :
 func spawn_pawn() -> void : 
 	var pawn_count : int = 0 + %Pawns.get_children().size()
 	
-	var node : Node2D = _pawn_scene.instantiate() as Node2D
+	var node : Pawn = _pawn_scene.instantiate() as Pawn
 	
-	node.position = _pawn_spawn_points[int(pawn_count)] * 8
+	node.set_spawn_point(_pawn_spawn_points[int(pawn_count)])
 	%Pawns.add_child(node)
 
 

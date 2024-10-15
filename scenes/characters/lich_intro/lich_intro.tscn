@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://datmgb6ssc5pc"]
+
+[ext_resource type="Script" path="res://scenes/characters/lich_intro/lich_intro.gd" id="1_4uy0t"]
+[ext_resource type="SpriteFrames" uid="uid://bdjetsioy1hqn" path="res://assets/characters/lich/lich_animation.tres" id="2_1o7o5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tm533"]
+radius = 5.0
+
+[node name="LichIntro" type="CharacterBody2D"]
+script = ExtResource("1_4uy0t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tm533")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = ExtResource("2_1o7o5")
+animation = &"idle_2"

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=4 uid="uid://d264vci7qghlm"]
+[gd_scene load_steps=5 format=4 uid="uid://d264vci7qghlm"]
 
 [ext_resource type="Script" path="res://scenes/maps/intro_hills/intro_hills.gd" id="1_kk6eo"]
 [ext_resource type="TileSet" uid="uid://dd5vt78m42uh" path="res://assets/tilemaps/hills/tileset.tres" id="1_nqyad"]
 [ext_resource type="PackedScene" uid="uid://bs58j7x1x4h14" path="res://scenes/characters/ranger_intro/ranger_intro.tscn" id="2_pk7ig"]
+[ext_resource type="Script" path="res://scenes/characters/ranger_intro/ranger_intro.gd" id="4_4rvdb"]
 
 [node name="IntroHills" type="Node2D"]
 script = ExtResource("1_kk6eo")
@@ -30,6 +31,7 @@ zoom = Vector2(5, 5)
 
 [node name="RangerIntro" parent="." instance=ExtResource("2_pk7ig")]
 unique_name_in_owner = true
+script = ExtResource("4_4rvdb")
 
 [node name="Dialogue" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

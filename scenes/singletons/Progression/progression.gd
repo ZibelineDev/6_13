@@ -11,6 +11,10 @@ func _init() -> void :
 		queue_free()
 
 
+var ranger_text_read : bool = false
+
+var lich_text_read : bool = false
+
 var barn_activated : bool = false
 @warning_ignore("unused_signal")
 signal barn_activated_unlocked

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://b7de1soj2ai61"]
+[gd_scene load_steps=13 format=4 uid="uid://b7de1soj2ai61"]
 
 [ext_resource type="TileSet" uid="uid://1w3uk830e33o" path="res://assets/tilemaps/farm/tileset.tres" id="1_f70k2"]
 [ext_resource type="Script" path="res://scenes/maps/ranger_lair/ranger_lair.gd" id="1_ldlos"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dhml8u5lpdonw" path="res://scenes/props/farm_manager/farm_manager.tscn" id="3_on1ek"]
 [ext_resource type="PackedScene" uid="uid://cc1d7ocgmhriu" path="res://scenes/props/crop_field/crop_field.tscn" id="5_116rs"]
 [ext_resource type="PackedScene" uid="uid://lrvyjg12k6at" path="res://scenes/user_interface/markers/exclamation_marker/exclamation_mark.tscn" id="6_ldlxv"]
+[ext_resource type="Script" path="res://scenes/maps/ranger_lair/canvas_layer.gd" id="7_3qt1g"]
+[ext_resource type="Theme" uid="uid://dooikrh66gno7" path="res://assets/themes/invisible_buttons.tres" id="8_3c21m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_apqb1"]
 size = Vector2(20, 140)
@@ -92,3 +94,60 @@ shape = SubResource("RectangleShape2D_ji6kw")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-7.5, 69)
 shape = SubResource("RectangleShape2D_mywc5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+script = ExtResource("7_3qt1g")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "The Ranger's lover's been reborn as a Lich.
+
+They have reunited and now form an unusual duo. 
+
+One is cultivating the earth and feeding their workers. The other is capturing souls to sustain the dead.
+
+
+
+
+The Ranger can assign workers to produce food. 
+
+Be careful, villagers consume food and will leave if they are starving. New villagers will join if you are abundant.
+
+
+
+
+Once you have a few workers active, you can switch to the Lich by pressing the Control Key."
+
+[node name="CloseModal" type="Button" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("8_3c21m")
+theme_type_variation = &"FlatButton"
+text = "x"

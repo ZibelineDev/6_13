@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bs58j7x1x4h14"]
 
-[ext_resource type="Script" path="res://scenes/characters/ranger_intro/ranger_intro.gd" id="1_diios"]
+[ext_resource type="Script" path="res://scenes/characters/lich_intro/lich_intro.gd" id="1_diios"]
 [ext_resource type="SpriteFrames" uid="uid://c235ahuttu23a" path="res://assets/characters/ranger/animation.tres" id="2_3j0hj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tm533"]

@@ -1,13 +1,11 @@
 extends Node2D
 
-
 @onready var _label : Label = %Label
 
 
 var _texts : Array[String] = [
-	"No lover should burry their partner this young.",
-	"*Sigh* . . .",
-	"I guess it's time to start a new life.",
+	"Finally they have joined the depth of death.",
+	"They shall be reborn as one of us.",
 ]
 
 
@@ -15,6 +13,10 @@ var _delay : float = 0.02
 var _delta : float = 0
 var _progress : int = 0
 var _waiting : bool = false
+
+
+func _ready() -> void :
+	_trigger_walk_in()
 
 
 func _process(delta : float) -> void :
@@ -54,12 +56,22 @@ func _progress_text() -> void :
 		_waiting = false
 
 
-func _trigger_walk_away() -> void : 
-	(%RangerIntro as RangerIntro).play_walk_animation()
-	(%RangerIntro as RangerIntro).velocity = Vector2(0, 1) * 5
+func _trigger_walk_in() -> void : 
+	(%LichIntro as LichIntro).play("walk_6")
+	(%LichIntro as LichIntro).velocity = Vector2(-1, 0) * 5
 	
 	await get_tree().create_timer(2).timeout
 	
+	(%LichIntro as LichIntro).play("idle_6")
+	(%LichIntro as LichIntro).velocity = Vector2(0, 0)
+
+
+func _trigger_walk_away() -> void :
+	(%LichIntro as LichIntro).play("walk_6")
+	(%LichIntro as LichIntro).velocity = Vector2(-1, 0) * 5
+	
+	await get_tree().create_timer(3).timeout
 	await LoadingFade.ref.fade_in(1)
 	
-	Root.ref.instantiate_lich_intro()
+	Root.ref.switch_scene()
+	UserInterface.ref.display_hud()

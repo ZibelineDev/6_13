@@ -58,3 +58,7 @@ func ui_element_closed() -> void :
 
 func is_active() -> bool : 
 	return true if _current_menu else false
+
+
+func display_hud() -> void :
+	($HUD as Control).visible = true

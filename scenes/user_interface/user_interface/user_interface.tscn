@@ -19,6 +19,7 @@ visible = false
 visible = false
 
 [node name="HUD" parent="." instance=ExtResource("5_y2r43")]
+visible = false
 
 [node name="OnBreakLabel" type="Label" parent="."]
 visible = false

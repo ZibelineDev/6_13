@@ -25,11 +25,15 @@ func _initialise_areas() -> void :
 
 func move_camera(to : Vector2) -> void :
 	var tween : Tween = get_tree().create_tween()
-	tween.tween_property(%Camera2D, "position", to, 0.5)
+	tween.tween_property(%Camera2D, "position", to, 0.25)
 
 
 func _on_book_area_entry_body_entered(body : Node2D) -> void :
 	if body is PlayerCharacter :
+		if not Progression.ref.book_reached : 
+			Progression.ref.book_reached = true
+			Progression.ref.book_reached_unlocked.emit()
+		
 		move_camera(Vector2(48, 0))
 
 

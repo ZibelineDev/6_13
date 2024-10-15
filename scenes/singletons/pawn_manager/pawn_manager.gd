@@ -10,15 +10,21 @@ func _init() -> void :
 #endregion
 
 
+const FOOD_THRESHOLDS : Array[int] = [
+	5, 10, 25, 50, 100, 250, 500, 1000, 2500, 7500, 16000, 35000,
+]
+
 signal population_updated(new_value : int)
 signal farmers_updated(new_value : int)
 signal undead_population_updated(new_value : int)
 
 
-var _human_pawns : int = 2
+var _human_pawns : int = 1
 var _undead_pawns : Array[UndeadPawnResource] = []
 
 var _farmers : int = 0
+
+var _starvation_cycles : int = 0
 
 
 func _ready() -> void :
@@ -107,18 +113,21 @@ func _feed_pawns() -> void :
 	if error : 
 		_check_for_pawn_consumption()
 	else : 
+		_starvation_cycles = 0
 		_check_for_pawn_creation()
 
 
 func _check_for_pawn_creation() -> void :
+	if _human_pawns >= 11 : 
+		return
+	
 	var food : int = ResourceManager.ref.get_food()
 	
-	if food >= [10, 25, 50, 100, 250, 500, 1000, 5000][int(_human_pawns - 1)] :
-		print("Enough food to create a pawn")
+	if food >= FOOD_THRESHOLDS[int(_human_pawns - 1)] :
 		create_human_pawn()
 	
 	else : 
-		var target : int = [10, 25, 50, 100, 250, 500, 1000, 5000][int(_human_pawns - 1)]
+		var target : int = FOOD_THRESHOLDS[int(_human_pawns - 1)]
 		print("Next pawn : %s/%s" %[food, target])
 
 
@@ -126,9 +135,9 @@ func _check_for_pawn_consumption() -> void :
 	if not can_consume_pawn() :
 		return
 	
-	var roll : int = randi_range(0, 99)
+	_starvation_cycles += 1 
 	
-	if roll < 33 :
+	if _starvation_cycles >= 3 :
 		consume_pawn()
 
 

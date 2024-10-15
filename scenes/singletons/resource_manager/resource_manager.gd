@@ -14,7 +14,7 @@ func _init() -> void :
 signal food_updated(new_value : int)
 
 
-var _food : int = 500
+var _food : int = 0
 
 
 func create_food(quantity : int) -> Error :
@@ -52,7 +52,7 @@ func get_food() -> int :
 signal soul_essence_updated(new_value : int)
 
 
-var _soul_essence : int = 25
+var _soul_essence : int = 0
 
 
 func create_soul_essence(quantity : int) -> Error : 

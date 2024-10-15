@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgdcwonepqbr5"]
+
+[ext_resource type="Script" path="res://scenes/user_interface/markers/go_right_marker/go_right_marker.gd" id="1_ayfuy"]
+[ext_resource type="Texture2D" uid="uid://cc8mxetvwwwfn" path="res://assets/user_interface/gui_keyboard.png" id="2_n04t6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8y5t"]
+atlas = ExtResource("2_n04t6")
+region = Rect2(40, 24, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vamkm"]
+atlas = ExtResource("2_n04t6")
+region = Rect2(40, 72, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sf5uo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8y5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vamkm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[node name="GoRightMarker" type="Node2D"]
+script = ExtResource("1_ayfuy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.5, 0)
+sprite_frames = SubResource("SpriteFrames_sf5uo")
+autoplay = "default"
+frame_progress = 0.744629
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-12, 0)
+texture = ExtResource("2_n04t6")
+region_enabled = true
+region_rect = Rect2(24, 24, 15, 8)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-8, -9)
+texture = ExtResource("2_n04t6")
+region_enabled = true
+region_rect = Rect2(32, 16, 7, 8)

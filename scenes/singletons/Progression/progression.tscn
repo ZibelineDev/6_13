@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://buralnct38joj"]
+
+[ext_resource type="Script" path="res://scenes/singletons/Progression/progression.gd" id="1_ssaqs"]
+
+[node name="Progression" type="Node"]
+script = ExtResource("1_ssaqs")

@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://ch3voeybo2r80"]
+
+[ext_resource type="Texture2D" uid="uid://bqvpieqr6vqn2" path="res://assets/user_interface/icons/pawn.png" id="1_7nqnp"]
+
+[sub_resource type="GDScript" id="GDScript_5rxsp"]
+script/source = "extends Label
+
+
+func _ready() -> void :
+	_update()
+	PawnManager.ref.population_updated.connect(_on_human_pawn_update)
+
+
+func _update(new_value : int = -1) -> void : 
+	if new_value == -1 : 
+		text = \"%s\" %PawnManager.ref.get_human_population()
+	else : 
+		text = \"%s\" %new_value
+
+
+func _on_human_pawn_update(new_value : int) -> void :
+	_update(new_value)
+"
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_7nqnp")
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "1"
+script = SubResource("GDScript_5rxsp")

@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://cp77qklfmy1jk"]
+[gd_scene load_steps=12 format=4 uid="uid://cp77qklfmy1jk"]
 
 [ext_resource type="TileSet" uid="uid://bi1sqolcx1yl3" path="res://assets/tilemaps/crypt/tileset.tres" id="1_ahhs1"]
 [ext_resource type="Script" path="res://scenes/maps/lich_lair/lich_lair.gd" id="1_ddnp6"]
 [ext_resource type="PackedScene" uid="uid://dw2rjpkqgwb0d" path="res://scenes/props/snatching_altar/snatching_altar.tscn" id="2_aiwun"]
 [ext_resource type="PackedScene" uid="uid://bgb337k67ojgp" path="res://scenes/characters/vampire/vampire.tscn" id="3_b4f64"]
 [ext_resource type="PackedScene" uid="uid://cugvd613165k1" path="res://scenes/props/book/book.tscn" id="4_h6k7y"]
+[ext_resource type="PackedScene" uid="uid://lrvyjg12k6at" path="res://scenes/user_interface/markers/exclamation_marker/exclamation_mark.tscn" id="6_dd7ux"]
+[ext_resource type="Script" path="res://scenes/user_interface/markers/exclamation_marker/altar_marker.gd" id="7_nb444"]
+[ext_resource type="PackedScene" uid="uid://dgdcwonepqbr5" path="res://scenes/user_interface/markers/go_right_marker/go_right_marker.tscn" id="8_g0af4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jt2e"]
 size = Vector2(8, 16)
@@ -86,3 +89,11 @@ shape = SubResource("RectangleShape2D_urin5")
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="BookAreaExit"]
 position = Vector2(104, 8)
 shape = SubResource("RectangleShape2D_urin5")
+
+[node name="ExclamationMark" parent="." instance=ExtResource("6_dd7ux")]
+z_index = 20
+position = Vector2(0, -9)
+script = ExtResource("7_nb444")
+
+[node name="GoRightMarker" parent="." instance=ExtResource("8_g0af4")]
+position = Vector2(99, 24)

@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://lrvyjg12k6at"]
+
+[ext_resource type="Texture2D" uid="uid://75kppn7whx8q" path="res://assets/user_interface/gui_icons.png" id="1_n5v1h"]
+[ext_resource type="Script" path="res://scenes/user_interface/markers/exclamation_marker/barn_marker.gd" id="2_3qseo"]
+[ext_resource type="Texture2D" uid="uid://cc8mxetvwwwfn" path="res://assets/user_interface/gui_keyboard.png" id="3_aigqf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pras7"]
+atlas = ExtResource("1_n5v1h")
+region = Rect2(16, 112, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdjhl"]
+atlas = ExtResource("1_n5v1h")
+region = Rect2(64, 112, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8t0ej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pras7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdjhl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_noruj"]
+atlas = ExtResource("3_aigqf")
+region = Rect2(40, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tiyn"]
+atlas = ExtResource("3_aigqf")
+region = Rect2(40, 64, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qygkh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_noruj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tiyn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.5
+}]
+
+[node name="ExclamationMark" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_8t0ej")
+autoplay = "default"
+frame_progress = 0.560277
+script = ExtResource("2_3qseo")
+
+[node name="Keys" type="Node2D" parent="."]
+visible = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Keys"]
+position = Vector2(16, 3.5)
+sprite_frames = SubResource("SpriteFrames_qygkh")
+autoplay = "default"
+frame_progress = 0.6208
+
+[node name="ASD" type="Sprite2D" parent="Keys"]
+position = Vector2(7.5, 12)
+texture = ExtResource("3_aigqf")
+region_enabled = true
+region_rect = Rect2(24, 24, 23, 8)
+
+[node name="ASD2" type="Sprite2D" parent="Keys"]
+position = Vector2(7.75, 3.5)
+texture = ExtResource("3_aigqf")
+region_enabled = true
+region_rect = Rect2(32, 16, 7, 8)

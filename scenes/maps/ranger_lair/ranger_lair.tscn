@@ -1,10 +1,23 @@
-[gd_scene load_steps=6 format=4 uid="uid://b7de1soj2ai61"]
+[gd_scene load_steps=11 format=4 uid="uid://b7de1soj2ai61"]
 
 [ext_resource type="TileSet" uid="uid://1w3uk830e33o" path="res://assets/tilemaps/farm/tileset.tres" id="1_f70k2"]
 [ext_resource type="Script" path="res://scenes/maps/ranger_lair/ranger_lair.gd" id="1_ldlos"]
 [ext_resource type="PackedScene" uid="uid://kde8g4y7fa1n" path="res://scenes/characters/ranger/ranger.tscn" id="2_17o7f"]
 [ext_resource type="PackedScene" uid="uid://dhml8u5lpdonw" path="res://scenes/props/farm_manager/farm_manager.tscn" id="3_on1ek"]
 [ext_resource type="PackedScene" uid="uid://cc1d7ocgmhriu" path="res://scenes/props/crop_field/crop_field.tscn" id="5_116rs"]
+[ext_resource type="PackedScene" uid="uid://lrvyjg12k6at" path="res://scenes/user_interface/markers/exclamation_marker/exclamation_mark.tscn" id="6_ldlxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apqb1"]
+size = Vector2(20, 140)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pornu"]
+size = Vector2(242, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ji6kw"]
+size = Vector2(20, 146)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mywc5"]
+size = Vector2(241, 20)
 
 [node name="RangerLair" type="Node2D"]
 script = ExtResource("1_ldlos")
@@ -57,3 +70,25 @@ _index = 3
 
 [node name="Pawns" type="Node2D" parent="."]
 unique_name_in_owner = true
+
+[node name="ExclamationMark" parent="." instance=ExtResource("6_ldlxv")]
+z_index = 50
+position = Vector2(48, -12)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-127, -3)
+shape = SubResource("RectangleShape2D_apqb1")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-7, -73)
+shape = SubResource("RectangleShape2D_pornu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(119, -7)
+shape = SubResource("RectangleShape2D_ji6kw")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-7.5, 69)
+shape = SubResource("RectangleShape2D_mywc5")

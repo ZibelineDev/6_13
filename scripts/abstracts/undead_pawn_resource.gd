@@ -5,7 +5,7 @@ extends Resource
 var lifespan : float = 60.0
 var life_progression : float = 0.0
 
-var production_value : int = 5
+var production_value : int = 1
 var production_cycle : float = 5.0
 var cycle_progression : float = 0.0
 

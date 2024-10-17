@@ -111,44 +111,48 @@ focus_mode = 0
 text = "Snatch a Soul"
 script = ExtResource("5_xyt5p")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="AutoSnatch" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="AutoSnatchLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/AutoSnatch"]
+layout_mode = 2
+
+[node name="AutoSnatchLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/AutoSnatch/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Automatically Snatch Souls"
 
-[node name="AutoSnatchCheckBox" type="CheckBox" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="AutoSnatchCheckBox" type="CheckBox" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/AutoSnatch/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/AutoSnatch"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="MinPop" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="MinPop" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/AutoSnatch/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Minimum Population "
 
-[node name="PopDecrease" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="PopDecrease" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/AutoSnatch/HBoxContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 focus_mode = 0
 text = "-"
 
-[node name="MinPopIndicator" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="MinPopIndicator" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/AutoSnatch/HBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "1"
 script = SubResource("GDScript_hyr8y")
 
-[node name="PopIncrease" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="PopIncrease" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/AutoSnatch/HBoxContainer2"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2

@@ -14,8 +14,13 @@ var _pawn_spawn_points : Array[Vector2i] = [
 
 
 func _ready() -> void :
+	(%Ranger as CharacterBody2D).position = Progression.ref.ranger_position
 	PawnManager.ref.farmers_updated.connect(_on_farmers_updated)
 	synchronise_pawns(PawnManager.ref.get_farmers())
+
+
+func _process(_delta : float) -> void :
+	Progression.ref.ranger_position = (%Ranger as CharacterBody2D).position
 
 
 func fire_pawn() -> void :

@@ -13,9 +13,16 @@ var _undead_pawns : Array[UndeadPawn] = []
 
 
 func _ready() -> void :
+	(%Vampire as CharacterBody2D).position = Progression.ref.vampire_position
+	(%Camera2D as Camera2D).position = Progression.ref.vampire_camera_position
 	_initialise_areas()
 	_synchronise_pawns()
 	PawnManager.ref.undead_population_updated.connect(_on_undead_population_updated)
+
+
+func _process(_delta : float) -> void :
+	Progression.ref.vampire_position = (%Vampire as CharacterBody2D).position
+	Progression.ref.vampire_camera_position = (%Camera2D as Camera2D).position
 
 
 func _initialise_areas() -> void :

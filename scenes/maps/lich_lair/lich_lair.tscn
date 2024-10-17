@@ -68,6 +68,7 @@ zoom = Vector2(5, 5)
 position = Vector2(136, -36)
 
 [node name="Vampire" parent="." instance=ExtResource("5_twcoo")]
+unique_name_in_owner = true
 position = Vector2(0, 21)
 
 [node name="BookAreaEntry" type="Area2D" parent="."]

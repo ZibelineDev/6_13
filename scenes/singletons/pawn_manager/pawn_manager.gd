@@ -17,10 +17,13 @@ const FOOD_THRESHOLDS : Array[int] = [
 signal population_updated(new_value : int)
 signal farmers_updated(new_value : int)
 signal undead_population_updated(new_value : int)
+signal population_control_updated(new_value : int)
 
 
 var _human_pawns : int = 1
 var _undead_pawns : Array[UndeadPawnResource] = []
+
+var _population_control : int = 11
 
 var _farmers : int = 0
 
@@ -119,7 +122,7 @@ func _feed_pawns() -> void :
 
 
 func _check_for_pawn_creation() -> void :
-	if _human_pawns >= 11 : 
+	if _human_pawns >= _population_control : 
 		return
 	
 	var food : int = ResourceManager.ref.get_food()
@@ -174,3 +177,12 @@ func progress_undead_lifespan(delta : float) -> void :
 
 func get_undead_pawns() -> Array[UndeadPawnResource] : 
 	return _undead_pawns
+
+
+func manage_population_control(increase : bool = true) -> void :
+	if increase : 
+		_population_control += 1 
+	else : 
+		_population_control -= 1
+	
+	population_control_updated.emit(_population_control)

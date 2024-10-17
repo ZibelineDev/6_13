@@ -16,7 +16,7 @@ shape = SubResource("RectangleShape2D_d0p3h")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = ExtResource("2_as4ei")
-animation = &"walk_7"
+animation = &"idle_2"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 unique_name_in_owner = true

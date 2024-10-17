@@ -53,7 +53,7 @@ func _try_to_purchase() -> void :
 	
 	else :
 		_update_modulate(Color(1, 1, 1))
-		_skill.purchased.disconnect(_on_pressed)
+		pressed.disconnect(_on_pressed)
 
 
 func _update_modulate(color : Color) -> void :

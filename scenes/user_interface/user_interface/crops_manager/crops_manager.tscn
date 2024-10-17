@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw02pnmwjral5"]
+[gd_scene load_steps=8 format=3 uid="uid://bw02pnmwjral5"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/crops_manager.gd" id="1_ykg0h"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/field_menus.gd" id="2_51o7i"]
 [ext_resource type="PackedScene" uid="uid://c73di1fb2vd1l" path="res://scenes/user_interface/user_interface/crops_manager/field_selector/field_selector.tscn" id="3_oyduh"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/population_label.gd" id="4_hxpgc"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/reserve_label.gd" id="5_de1gu"]
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/population_control.gd" id="6_ycsol"]
 
 [sub_resource type="GDScript" id="GDScript_ja2vc"]
 script/source = "extends Label
@@ -67,6 +68,7 @@ text = "Manage Farmers"
 horizontal_alignment = 1
 
 [node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="AssignWorkers" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -152,7 +154,38 @@ horizontal_alignment = 2
 script = ExtResource("5_de1gu")
 
 [node name="HSeparator2" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
+
+[node name="PopulationControl" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 16
+script = ExtResource("6_ycsol")
+
+[node name="Header" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PopulationControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Maximum Population "
+
+[node name="PopControlMinus" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PopulationControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+focus_mode = 0
+text = "-"
+
+[node name="PopControlLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PopulationControl"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "11"
+
+[node name="PopControlPlus" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PopulationControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+focus_mode = 0
+text = "+"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 visible = false

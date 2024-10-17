@@ -1,13 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://gein4tuhwqtf"]
+[gd_scene load_steps=8 format=3 uid="uid://gein4tuhwqtf"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/user_interface.gd" id="1_eengl"]
 [ext_resource type="PackedScene" uid="uid://bcyw76iguacxa" path="res://scenes/user_interface/book/book.tscn" id="2_4y7v0"]
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/texture_button.gd" id="2_r8ew7"]
 [ext_resource type="PackedScene" uid="uid://bw02pnmwjral5" path="res://scenes/user_interface/user_interface/crops_manager/crops_manager.tscn" id="2_rbu8r"]
 [ext_resource type="PackedScene" uid="uid://bipfwbuj7ibc" path="res://scenes/user_interface/user_interface/snatching_menu/snatching_menu.tscn" id="3_fexuy"]
 [ext_resource type="PackedScene" uid="uid://ch3voeybo2r80" path="res://scenes/user_interface/user_interface/hud/hud.tscn" id="5_y2r43"]
+[ext_resource type="PackedScene" uid="uid://cqpmp21ap8r52" path="res://scenes/user_interface/user_interface/creature_craft/creature_craft.tscn" id="6_dgn04"]
 
 [node name="UserInterface" type="CanvasLayer"]
 script = ExtResource("1_eengl")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_r8ew7")
 
 [node name="Book" parent="." instance=ExtResource("2_4y7v0")]
 visible = false
@@ -16,6 +26,9 @@ visible = false
 visible = false
 
 [node name="SnatchingMenu" parent="." instance=ExtResource("3_fexuy")]
+visible = false
+
+[node name="CreatureCraft" parent="." instance=ExtResource("6_dgn04")]
 visible = false
 
 [node name="HUD" parent="." instance=ExtResource("5_y2r43")]

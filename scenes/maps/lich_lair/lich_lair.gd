@@ -41,7 +41,7 @@ func _on_book_area_entry_body_entered(body : Node2D) -> void :
 			Progression.ref.book_reached = true
 			Progression.ref.book_reached_unlocked.emit()
 		
-		move_camera(Vector2(48, 0))
+		move_camera(Vector2(190, 0))
 
 
 func _on_book_area_exit_body_entered(body : Node2D) -> void :

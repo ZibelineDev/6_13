@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://nw0ujhq2mkgw"]
+
+[ext_resource type="PackedScene" uid="uid://lrvyjg12k6at" path="res://scenes/user_interface/markers/exclamation_marker/exclamation_mark.tscn" id="1_3x55w"]
+[ext_resource type="Script" path="res://scenes/props/creature_craft/creature_craft.gd" id="1_25d24"]
+[ext_resource type="SpriteFrames" uid="uid://bdjetsioy1hqn" path="res://assets/characters/lich/lich_animation.tres" id="1_vc2xp"]
+[ext_resource type="Script" path="res://scenes/user_interface/markers/exclamation_marker/creature_craft_marker.gd" id="2_1n1hm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qxi4g"]
+size = Vector2(14, 17)
+
+[node name="CreatureCraft" type="StaticBody2D"]
+script = ExtResource("1_25d24")
+
+[node name="ExclamationMark" parent="." instance=ExtResource("1_3x55w")]
+z_index = 20
+position = Vector2(0, -20)
+script = ExtResource("2_1n1hm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_vc2xp")
+animation = &"idle_2"
+autoplay = "idle_2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_qxi4g")

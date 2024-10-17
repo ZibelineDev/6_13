@@ -25,6 +25,7 @@ var _undead_pawns : Array[UndeadPawnResource] = []
 var _farmers : int = 0
 
 var _starvation_cycles : int = 0
+const MAX_STARVATION_CYCLES : int = 5
 
 
 func _ready() -> void :
@@ -122,13 +123,11 @@ func _check_for_pawn_creation() -> void :
 		return
 	
 	var food : int = ResourceManager.ref.get_food()
+	var threshold : int = FOOD_THRESHOLDS[int(_human_pawns - 1)]
 	
-	if food >= FOOD_THRESHOLDS[int(_human_pawns - 1)] :
+	if food >= threshold :
 		create_human_pawn()
-	
-	else : 
-		var target : int = FOOD_THRESHOLDS[int(_human_pawns - 1)]
-		print("Next pawn : %s/%s" %[food, target])
+		ResourceManager.ref.consume_food(threshold / 2, true)
 
 
 func _check_for_pawn_consumption() -> void :
@@ -137,7 +136,7 @@ func _check_for_pawn_consumption() -> void :
 	
 	_starvation_cycles += 1 
 	
-	if _starvation_cycles >= 3 :
+	if _starvation_cycles >= MAX_STARVATION_CYCLES :
 		consume_pawn()
 
 

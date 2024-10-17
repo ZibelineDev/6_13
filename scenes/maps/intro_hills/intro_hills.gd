@@ -62,4 +62,4 @@ func _trigger_walk_away() -> void :
 	
 	await LoadingFade.ref.fade_in(1)
 	
-	Root.ref.switch_scene()
+	Root.ref.instantiate_lich_intro()

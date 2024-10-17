@@ -20,7 +20,7 @@ enum Scenes {
 
 const SKIP_INTRO : bool = true
 
-@export var test : PackedScene
+@export var vampire_lair : PackedScene
 @export var ranger_lair : PackedScene
 @export var intro_hill : PackedScene
 
@@ -47,7 +47,7 @@ func _instantiate_ranger() -> void :
 
 func _instantiate_vampire() -> void : 
 	_remove_current_scene()
-	var node : Node = test.instantiate()
+	var node : Node = vampire_lair.instantiate()
 	
 	_current_scene_ref = node
 	node.name = "Vampire"
@@ -83,6 +83,7 @@ func switch_scene() -> void :
 func _instantiate_intro() -> void : 
 	if SKIP_INTRO : 
 		switch_scene()
+		UserInterface.ref.display_hud()
 		return
 	
 	var node : Node = intro_hill.instantiate()
@@ -91,3 +92,18 @@ func _instantiate_intro() -> void :
 	node.name = "IntroHills"
 	
 	add_child(node)
+
+
+func instantiate_lich_intro() -> void :
+	_is_switching = true
+	_remove_current_scene()
+	var scene : PackedScene = load("res://scenes/maps/lich_lair_intro_01/lich_lair_intro_01.tscn")
+	var node : Node = scene.instantiate()
+	
+	_current_scene_ref = node
+	node.name = "LichIntro"
+	add_child(_current_scene_ref)
+	
+	await LoadingFade.ref.fade_out()
+	
+	_is_switching = false

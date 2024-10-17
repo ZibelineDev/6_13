@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf1dempggomny"]
+
+[ext_resource type="Script" path="res://scenes/user_interface/book/skill/tooltip/skill_tooltip.gd" id="1_wpo7o"]
+
+[node name="MarginContainer" type="MarginContainer"]
+offset_top = 248.0
+offset_right = 260.0
+offset_bottom = 248.0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_wpo7o")
+
+[node name="SkillTooltip" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="Label" parent="SkillTooltip"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Header"
+horizontal_alignment = 1
+
+[node name="Description" type="RichTextLabel" parent="SkillTooltip"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_vertical = 4
+bbcode_enabled = true
+text = "[center]Description[/center]"
+
+[node name="SoullEssenceCost" type="Label" parent="SkillTooltip"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Cost : 5"
+horizontal_alignment = 1

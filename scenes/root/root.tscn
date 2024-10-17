@@ -1,20 +1,37 @@
-[gd_scene load_steps=8 format=3 uid="uid://g6bqas46atud"]
+[gd_scene load_steps=13 format=3 uid="uid://g6bqas46atud"]
 
-[ext_resource type="PackedScene" uid="uid://cnh8co2y0d4ns" path="res://scenes/maps/test/test.tscn" id="1_a1j0m"]
 [ext_resource type="Script" path="res://scenes/root/root.gd" id="1_r70vg"]
 [ext_resource type="PackedScene" uid="uid://b7de1soj2ai61" path="res://scenes/maps/ranger_lair/ranger_lair.tscn" id="2_0hqy8"]
+[ext_resource type="PackedScene" uid="uid://cg250eh8iw1d8" path="res://scenes/maps/lich_lair/lich_lair.tscn" id="2_apedm"]
 [ext_resource type="PackedScene" uid="uid://gein4tuhwqtf" path="res://scenes/user_interface/user_interface/user_interface.tscn" id="2_i5r7h"]
 [ext_resource type="PackedScene" uid="uid://dqohv7urms56f" path="res://scenes/user_interface/loading_fade/loading_fade.tscn" id="3_eso5h"]
 [ext_resource type="PackedScene" uid="uid://c6mrason1xc02" path="res://scenes/singletons/pawn_manager/pawn_manager.tscn" id="5_4c7lh"]
+[ext_resource type="PackedScene" uid="uid://buralnct38joj" path="res://scenes/singletons/Progression/progression.tscn" id="5_pngwf"]
+[ext_resource type="PackedScene" uid="uid://bqe1h2flwooe5" path="res://scenes/singletons/fields_manager/fields_manager.tscn" id="6_1fxax"]
 [ext_resource type="PackedScene" uid="uid://d264vci7qghlm" path="res://scenes/maps/intro_hills/intro_hills.tscn" id="6_kc5u0"]
+[ext_resource type="PackedScene" uid="uid://qg8st3vsrxmq" path="res://scenes/singletons/resource_manager/resource_manager.tscn" id="7_t3wyo"]
+[ext_resource type="PackedScene" uid="uid://n063yy3ucjio" path="res://scenes/singletons/soul_snatch_manager/soul_snatch_manager.tscn" id="8_72fha"]
+[ext_resource type="PackedScene" uid="uid://cvhg3mcmg1kvo" path="res://scenes/singletons/skills_manager/skills_manager.tscn" id="9_dngoe"]
 
 [node name="Root" type="Node"]
 script = ExtResource("1_r70vg")
-test = ExtResource("1_a1j0m")
+vampire_lair = ExtResource("2_apedm")
 ranger_lair = ExtResource("2_0hqy8")
 intro_hill = ExtResource("6_kc5u0")
 
-[node name="PawnManager" parent="." instance=ExtResource("5_4c7lh")]
+[node name="Progression" parent="." instance=ExtResource("5_pngwf")]
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="SkillsManager" parent="Managers" instance=ExtResource("9_dngoe")]
+
+[node name="PawnManager" parent="Managers" instance=ExtResource("5_4c7lh")]
+
+[node name="FieldsManager" parent="Managers" instance=ExtResource("6_1fxax")]
+
+[node name="ResourceManager" parent="Managers" instance=ExtResource("7_t3wyo")]
+
+[node name="SoulSnatchManager" parent="Managers" instance=ExtResource("8_72fha")]
 
 [node name="LoadingFade" parent="." instance=ExtResource("3_eso5h")]
 

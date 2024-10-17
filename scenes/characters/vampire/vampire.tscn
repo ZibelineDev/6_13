@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_sfb38"]
 [ext_resource type="Script" path="res://scripts/player_raycast.gd" id="3_kli5v"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_u4a4p"]
-radius = 6.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1pe3r"]
+size = Vector2(7.9, 7.9)
 
 [node name="Vampire" type="CharacterBody2D"]
 script = ExtResource("1_sfb38")
@@ -16,7 +16,7 @@ sprite_frames = ExtResource("1_ruk57")
 animation = &"idle_6"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_u4a4p")
+shape = SubResource("RectangleShape2D_1pe3r")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 unique_name_in_owner = true

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/props/farm_manager/farm_manager.gd" id="1_1cutr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_065ef"]
-size = Vector2(8, 8)
+size = Vector2(12, 8)
 
 [node name="FarmManager" type="StaticBody2D"]
 script = ExtResource("1_1cutr")

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://n063yy3ucjio"]
+
+[ext_resource type="Script" path="res://scenes/singletons/soul_snatch_manager/soul_snatch_manager.gd" id="1_lbjwq"]
+
+[node name="SoulSnatchManager" type="Node"]
+script = ExtResource("1_lbjwq")

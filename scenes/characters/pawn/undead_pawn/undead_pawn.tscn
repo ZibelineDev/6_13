@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5xbb1fa00yv0"]
+
+[ext_resource type="PackedScene" uid="uid://cmr0254coyhf4" path="res://scenes/characters/pawn/pawn.tscn" id="1_s74lk"]
+[ext_resource type="Script" path="res://scenes/characters/pawn/undead_pawn/undead_pawn.gd" id="2_8pywo"]
+
+[node name="UndeadPawn" instance=ExtResource("1_s74lk")]
+modulate = Color(0.239216, 0.882353, 0.870588, 0.490196)
+script = ExtResource("2_8pywo")

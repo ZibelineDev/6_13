@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvhg3mcmg1kvo"]
+
+[ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills_manager.gd" id="1_gkerr"]
+[ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills/02_auto_snatch.gd" id="2_c730i"]
+[ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills/01_eggplant.gd" id="2_pcf8f"]
+[ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills/03_max_undead.gd" id="2_uadca"]
+
+[node name="SkillsManager" type="Node"]
+script = ExtResource("1_gkerr")
+
+[node name="S03UndeadCapacity" type="Node" parent="."]
+script = ExtResource("2_uadca")
+
+[node name="S02AutoSnatch" type="Node" parent="."]
+script = ExtResource("2_c730i")
+
+[node name="S01Eggplant" type="Node" parent="."]
+script = ExtResource("2_pcf8f")

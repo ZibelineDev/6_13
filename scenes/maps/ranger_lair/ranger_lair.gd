@@ -8,11 +8,19 @@ var _pawn_scene : PackedScene = preload("res://scenes/characters/pawn/pawn.tscn"
 var _pawn_spawn_points : Array[Vector2i] = [
 	Vector2i(-5, -2),
 	Vector2i(-9, -2),
+	Vector2i(-9, 2), 
+	Vector2i(-5, 2),
 ]
 
 
 func _ready() -> void :
+	(%Ranger as CharacterBody2D).position = Progression.ref.ranger_position
 	PawnManager.ref.farmers_updated.connect(_on_farmers_updated)
+	synchronise_pawns(PawnManager.ref.get_farmers())
+
+
+func _process(_delta : float) -> void :
+	Progression.ref.ranger_position = (%Ranger as CharacterBody2D).position
 
 
 func fire_pawn() -> void :
@@ -25,9 +33,9 @@ func fire_pawn() -> void :
 func spawn_pawn() -> void : 
 	var pawn_count : int = 0 + %Pawns.get_children().size()
 	
-	var node : Node2D = _pawn_scene.instantiate() as Node2D
+	var node : Pawn = _pawn_scene.instantiate() as Pawn
 	
-	node.position = _pawn_spawn_points[int(pawn_count)] * 8
+	node.set_spawn_point(_pawn_spawn_points[int(pawn_count)])
 	%Pawns.add_child(node)
 
 

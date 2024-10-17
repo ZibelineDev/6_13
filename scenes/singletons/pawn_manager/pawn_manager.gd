@@ -24,6 +24,7 @@ var _human_pawns : int = 1
 var _undead_pawns : Array[UndeadPawnResource] = []
 
 var _population_control : int = 11
+const MAXIMUM_POPULATION : int = 11
 
 var _farmers : int = 0
 
@@ -184,5 +185,7 @@ func manage_population_control(increase : bool = true) -> void :
 		_population_control += 1 
 	else : 
 		_population_control -= 1
+	
+	_population_control = clamp(_population_control, 1, MAXIMUM_POPULATION)
 	
 	population_control_updated.emit(_population_control)

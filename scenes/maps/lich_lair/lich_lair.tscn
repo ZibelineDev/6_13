@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://cg250eh8iw1d8"]
+[gd_scene load_steps=14 format=4 uid="uid://cg250eh8iw1d8"]
 
 [ext_resource type="Script" path="res://scenes/maps/lich_lair/lich_lair.gd" id="1_c37e1"]
 [ext_resource type="TileSet" uid="uid://bi1sqolcx1yl3" path="res://assets/tilemaps/crypt/tileset.tres" id="2_pmap1"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://scenes/user_interface/markers/exclamation_marker/altar_marker.gd" id="7_mvla2"]
 [ext_resource type="PackedScene" uid="uid://dgdcwonepqbr5" path="res://scenes/user_interface/markers/go_right_marker/go_right_marker.tscn" id="8_0cija"]
 [ext_resource type="Script" path="res://scenes/maps/lich_lair/canvas_layer.gd" id="9_a2ftn"]
+[ext_resource type="Theme" uid="uid://dooikrh66gno7" path="res://assets/themes/invisible_buttons.tres" id="10_d2kn4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1jt2e"]
 size = Vector2(8, 16)
@@ -149,5 +150,7 @@ custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("10_d2kn4")
 theme_type_variation = &"FlatButton"
 text = "x"

@@ -20,3 +20,7 @@ func get_icon() -> Texture2D :
 
 func _on_purchased() -> void : 
 	FieldsManager.ref.available_crops_updated.emit()
+
+
+func is_unlocked() -> bool : 
+	return true

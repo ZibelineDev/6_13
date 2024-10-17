@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scenes/user_interface/book/skill/skill.gd" id="1_u8hf1"]
 
 [node name="Skill" type="TextureButton"]
-modulate = Color(0.666667, 0.666667, 0.666667, 1)
 custom_minimum_size = Vector2(64, 64)
 anchors_preset = 8
 anchor_left = 0.5

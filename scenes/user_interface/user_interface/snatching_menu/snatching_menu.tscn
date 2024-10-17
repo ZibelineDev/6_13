@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bipfwbuj7ibc"]
+[gd_scene load_steps=9 format=3 uid="uid://bipfwbuj7ibc"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/snatching_menu.gd" id="1_j78gr"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/human_population.gd" id="2_tsqxl"]
@@ -6,6 +6,27 @@
 [ext_resource type="Script" path="res://scripts/utils/labels/soul_essence.gd" id="4_2odmd"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/progress_bar.gd" id="4_5xk0k"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/snatching_menu/snatch_button.gd" id="5_xyt5p"]
+
+[sub_resource type="GDScript" id="GDScript_2yx72"]
+script/source = "extends Label
+
+
+func _ready() -> void :
+	_update()
+	SoulSnatchManager.ref.undead_capacity_updated.connect(_on_undead_capacity_updated)
+
+
+func _update(new_value : int = -1) -> void :
+	if new_value == -1 :
+		text = \"Undead capacity : %s\" %SoulSnatchManager.ref.get_undead_capacity()
+	
+	else :
+		text = \"Undead capacity : %s\" %new_value
+
+
+func _on_undead_capacity_updated(new_value : int) -> void :
+	_update(new_value)
+"
 
 [sub_resource type="GDScript" id="GDScript_hyr8y"]
 script/source = "extends Label
@@ -89,13 +110,31 @@ visible = false
 layout_mode = 2
 text = "Idle Humans : 0"
 
+[node name="Space" type="Control" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
 [node name="UndeadPopulation" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Undead Population :  0 "
 script = ExtResource("3_0c4kc")
 
+[node name="UndeadCapacity" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Undead Capacity : 2"
+script = SubResource("GDScript_2yx72")
+
+[node name="Space2" type="Control" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
 [node name="SoulEssence" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
+text = "Soul Essence : 0"
 script = ExtResource("4_2odmd")
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]

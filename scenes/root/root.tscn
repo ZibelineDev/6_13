@@ -23,6 +23,8 @@ intro_hill = ExtResource("6_kc5u0")
 
 [node name="Managers" type="Node" parent="."]
 
+[node name="SkillsManager" parent="Managers" instance=ExtResource("9_dngoe")]
+
 [node name="PawnManager" parent="Managers" instance=ExtResource("5_4c7lh")]
 
 [node name="FieldsManager" parent="Managers" instance=ExtResource("6_1fxax")]
@@ -30,8 +32,6 @@ intro_hill = ExtResource("6_kc5u0")
 [node name="ResourceManager" parent="Managers" instance=ExtResource("7_t3wyo")]
 
 [node name="SoulSnatchManager" parent="Managers" instance=ExtResource("8_72fha")]
-
-[node name="SkillsManager" parent="Managers" instance=ExtResource("9_dngoe")]
 
 [node name="LoadingFade" parent="." instance=ExtResource("3_eso5h")]
 

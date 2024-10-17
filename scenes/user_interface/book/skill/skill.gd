@@ -22,6 +22,9 @@ func _initialise_modulate() -> void :
 	if _skill.is_purchased() : 
 		return
 	
+	if not _skill.is_unlocked() : 
+		_update_modulate(Color(0.27, 0.27, 0.27))
+	
 	else :
 		_update_modulate(Color8(170, 170, 170))
 
@@ -31,6 +34,9 @@ func _initialise_connection() -> void :
 	
 	if _skill.is_purchased() : 
 		return
+	
+	if not _skill.is_unlocked() :
+		_skill.unlocked.connect(_on_skill_unlocked)
 	
 	_skill.purchased.connect(_on_pressed)
 
@@ -67,3 +73,8 @@ func _make_custom_tooltip(_for_text : String) -> Object :
 	node.set_skill_name(skill_name)
 	
 	return node
+
+
+func _on_skill_unlocked() -> void : 
+	_update_modulate(Color8(170, 170, 170))
+	_skill.unlocked.disconnect(_on_skill_unlocked)

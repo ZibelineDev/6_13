@@ -21,4 +21,8 @@ func get_icon() -> Texture2D :
 
 
 func _on_purchased() -> void : 
-	pass
+	SkillsManager.ref.get_skill("S03UndeadCapacity").unlock()
+
+
+func is_unlocked() -> bool : 
+	return true

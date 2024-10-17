@@ -13,6 +13,7 @@ func _init() -> void :
 signal snatching_progressed(progress : float, max_value : float)
 signal snatching_stopped
 signal min_population_snatched_updated(new_value : int)
+signal undead_capacity_updated(new_value : int)
 
 
 var _snatch_duration : float = 10.0
@@ -21,6 +22,12 @@ var _is_snatching : bool = false
 
 var _min_population_snatch : int = 1
 var _auto_snatch : bool = false
+
+var _undead_capacity : int = 2 
+
+
+func _ready() -> void :
+	SkillsManager.ref.get_skill("S03UndeadCapacity").purchased.connect(_on_skill_03_purchased)
 
 
 func _process(delta : float) -> void :
@@ -51,7 +58,16 @@ func _progress_snatch(delta : float) -> void :
 
 
 func can_snatch_soul() -> bool : 
-	return PawnManager.ref.can_consume_pawn() and not _is_snatching
+	if not PawnManager.ref.can_consume_pawn() : 
+		return false
+	
+	if _is_snatching : 
+		return false
+	
+	if PawnManager.ref.get_undead_population() >= _undead_capacity : 
+		return false
+	
+	return true
 
 
 func start_snatching() -> Error :
@@ -98,3 +114,12 @@ func _complete_snatching() -> Error :
 		
 	PawnManager.ref.create_undead_pawn()
 	return OK
+
+
+func get_undead_capacity() -> int :
+	return _undead_capacity
+
+
+func _on_skill_03_purchased() -> void :
+	_undead_capacity = 4 
+	undead_capacity_updated.emit(4)

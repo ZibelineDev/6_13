@@ -146,6 +146,7 @@ func _check_for_pawn_consumption() -> void :
 
 func _on_food_cycle_timeout() -> void :
 	_feed_pawns()
+	ResourceManager.ref.deliver_food()
 
 
 func create_undead_pawn() -> void :

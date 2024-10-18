@@ -2,7 +2,7 @@ extends Node2D
 
 
 func _ready() -> void :
-	if Progression.ref.barn_activated :
+	if Progression.ref.creature_craft_activated :
 		visible = false
 		queue_free()
 	

@@ -13,7 +13,7 @@ config_version=5
 config/name="6_13"
 run/main_scene="res://scenes/root/root.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://assets/user_interface/book/s_05_creature_craft.png"
 
 [debug]
 

@@ -85,3 +85,47 @@ func consume_soul_essence(quantity : int, forced : bool = false) -> Error :
 func get_soul_essence() -> int : 
 	return _soul_essence
 #endregion
+
+ 
+signal food_delivery_value_updated(new_value : int)
+signal food_delivered(new_value : int)
+
+
+var _food_delivery_quantity : int = 0
+var _crypt_food : int = 0
+
+
+func get_food_delivery_quantity() -> int : 
+	return _food_delivery_quantity
+
+
+func get_crypt_food() -> int :
+	return _crypt_food
+
+
+func manage_food_delivery_quantity(increase : bool = true) -> void : 
+	if increase : 
+		_food_delivery_quantity += 5
+	else :
+		_food_delivery_quantity -= 5
+	
+	_food_delivery_quantity = clamp(_food_delivery_quantity, 0, 500)
+	food_delivery_value_updated.emit(_food_delivery_quantity)
+
+
+func deliver_food() -> void : 
+	var quantity : int = _food_delivery_quantity
+	
+	if quantity > _food : 
+		quantity = _food
+	
+	if quantity <= 0 : 
+		return
+	
+	var error : Error = consume_food(quantity)
+	
+	if error : 
+		return
+	
+	_crypt_food += quantity
+	food_delivered.emit(_crypt_food)

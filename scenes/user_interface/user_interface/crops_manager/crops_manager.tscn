@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bw02pnmwjral5"]
+[gd_scene load_steps=9 format=3 uid="uid://bw02pnmwjral5"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/crops_manager.gd" id="1_ykg0h"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/field_menus.gd" id="2_51o7i"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/population_label.gd" id="4_hxpgc"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/reserve_label.gd" id="5_de1gu"]
 [ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/population_control.gd" id="6_ycsol"]
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/crops_manager/food_delivery.gd" id="7_7vgcm"]
 
 [sub_resource type="GDScript" id="GDScript_ja2vc"]
 script/source = "extends Label
@@ -188,39 +189,36 @@ layout_mode = 2
 focus_mode = 0
 text = "+"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
-visible = false
+[node name="FoodDelivery" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 16
+script = ExtResource("7_7vgcm")
 
-[node name="Label" type="RichTextLabel" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FoodDelivery"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 4
 text = "Send food to the undeads"
-fit_content = true
 
-[node name="Button" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="DeliveryMinus" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FoodDelivery"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_mode = 0
 text = "-"
 
-[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="DeliveryLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FoodDelivery"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "0"
 
-[node name="Button2" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="DeliveryPlus" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/FoodDelivery"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_mode = 0
 text = "+"
-
-[node name="Button3" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(32, 32)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "Send"

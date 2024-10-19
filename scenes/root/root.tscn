@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://g6bqas46atud"]
+[gd_scene load_steps=15 format=3 uid="uid://g6bqas46atud"]
 
 [ext_resource type="Script" path="res://scenes/root/root.gd" id="1_r70vg"]
 [ext_resource type="PackedScene" uid="uid://b7de1soj2ai61" path="res://scenes/maps/ranger_lair/ranger_lair.tscn" id="2_0hqy8"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://n063yy3ucjio" path="res://scenes/singletons/soul_snatch_manager/soul_snatch_manager.tscn" id="8_72fha"]
 [ext_resource type="PackedScene" uid="uid://cvhg3mcmg1kvo" path="res://scenes/singletons/skills_manager/skills_manager.tscn" id="9_dngoe"]
 [ext_resource type="PackedScene" uid="uid://to7blm1bi3xi" path="res://scenes/singletons/creature_craft/creature_craft.tscn" id="11_k2pwa"]
+[ext_resource type="PackedScene" uid="uid://ei62uhnm3bop" path="res://scenes/singletons/leatherwork_manager/leatherwork_manager.tscn" id="12_5nime"]
 
 [node name="Root" type="Node"]
 script = ExtResource("1_r70vg")
@@ -35,6 +36,8 @@ intro_hill = ExtResource("6_kc5u0")
 [node name="SoulSnatchManager" parent="Managers" instance=ExtResource("8_72fha")]
 
 [node name="CreatureCraft" parent="Managers" instance=ExtResource("11_k2pwa")]
+
+[node name="LeatherworkManager" parent="Managers" instance=ExtResource("12_5nime")]
 
 [node name="LoadingFade" parent="." instance=ExtResource("3_eso5h")]
 

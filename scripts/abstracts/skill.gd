@@ -39,7 +39,7 @@ func purchase() -> Error :
 		return FAILED
 	
 	if not is_unlocked() : 
-		return FAILED 
+		return FAILED
 	
 	var error : Error = ResourceManager.ref.consume_soul_essence(get_cost())
 	

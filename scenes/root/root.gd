@@ -37,6 +37,7 @@ func _ready() -> void :
 	if DEBUG_SETTINGS : 
 		ResourceManager.ref.create_soul_essence(100)
 		ResourceManager.ref.create_crypt_food(100)
+		ResourceManager.ref.create_food(1000)
 
 
 func _instantiate_ranger() -> void : 

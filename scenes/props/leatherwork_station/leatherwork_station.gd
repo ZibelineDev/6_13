@@ -2,7 +2,9 @@ extends InteractiveProp
 
 
 func _ready() -> void :
-	_set_idle()
+	_update_animation()
+	
+	PawnManager.ref.leatherwork_updated.connect(_on_leatherworker_updated)
 	
 	if SkillsManager.ref.get_skill("S07Leatherwork").is_purchased() :
 		_unlock()
@@ -14,6 +16,14 @@ func _ready() -> void :
 
 func interact() -> void :
 	UserInterface.ref.open_leatherwork()
+
+
+func _update_animation() -> void :
+	if PawnManager.ref.get_leatherworker() > 0 : 
+		_set_working()
+	
+	else : 
+		_set_idle()
 
 
 func _set_idle() -> void :
@@ -39,3 +49,7 @@ func _unlock() -> void :
 func _on_skill_07_purchased() -> void : 
 	_unlock()
 	SkillsManager.ref.get_skill("S07Leatherwork").purchased.disconnect(_on_skill_07_purchased)
+
+
+func _on_leatherworker_updated(_new_value : int) -> void : 
+	_update_animation()

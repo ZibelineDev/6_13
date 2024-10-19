@@ -1,0 +1,92 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqpmp21ap8r52"]
+
+[ext_resource type="Script" path="res://scenes/user_interface/user_interface/creature_craft/creature_craft.gd" id="1_uec6o"]
+[ext_resource type="Script" path="res://scripts/utils/labels/soul_essence.gd" id="2_7oesd"]
+[ext_resource type="PackedScene" uid="uid://bq0e4hcn1o753" path="res://scenes/singletons/creature_craft/creatures/rat_craft/rat_craft.tscn" id="2_mx7fh"]
+
+[sub_resource type="GDScript" id="GDScript_o6t3t"]
+script/source = "extends Label
+
+
+func _ready() -> void :
+	_update()
+	ResourceManager.ref.crypt_food_updated.connect(_on_crypt_food_updated)
+
+
+func _update(new_value : int = -1) -> void :
+	if new_value == -1 :
+		text = \"Food : %s\" %ResourceManager.ref.get_crypt_food()
+	
+	else :
+		text = \"Food : %s\" %new_value
+
+
+func _on_crypt_food_updated(new_value : int) -> void :
+	_update(new_value)
+"
+
+[node name="CreatureCraft" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_uec6o")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 96.0
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Creature Craft"
+horizontal_alignment = 1
+
+[node name="Creatures" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RatCraft" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Creatures" instance=ExtResource("2_mx7fh")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="FoodLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Food : 0"
+horizontal_alignment = 2
+script = SubResource("GDScript_o6t3t")
+
+[node name="SoulEssenceLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Soul Essence : 0"
+horizontal_alignment = 2
+script = ExtResource("2_7oesd")

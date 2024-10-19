@@ -18,7 +18,7 @@ enum Scenes {
 }
 
 
-const SKIP_INTRO : bool = true
+const SKIP_INTRO : bool = false
 
 @export var vampire_lair : PackedScene
 @export var ranger_lair : PackedScene

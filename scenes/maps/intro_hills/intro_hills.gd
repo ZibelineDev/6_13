@@ -35,7 +35,6 @@ func _process(delta : float) -> void :
 
 
 func _progress_text() -> void : 
-	print("updating text")
 	if _label.text.length() < _texts[_progress].length() : 
 		_label.text += _texts[_progress][_label.text.length()]
 	

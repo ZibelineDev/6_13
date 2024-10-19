@@ -18,7 +18,8 @@ enum Scenes {
 }
 
 
-const SKIP_INTRO : bool = false
+const SKIP_INTRO : bool = true
+const DEBUG_SETTINGS : bool = true
 
 @export var vampire_lair : PackedScene
 @export var ranger_lair : PackedScene
@@ -32,6 +33,10 @@ var _is_switching : bool = false
 
 func _ready() -> void :
 	_instantiate_intro()
+	
+	if DEBUG_SETTINGS : 
+		ResourceManager.ref.create_soul_essence(100)
+		ResourceManager.ref.create_crypt_food(100)
 
 
 func _instantiate_ranger() -> void : 

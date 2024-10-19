@@ -127,6 +127,10 @@ layout_mode = 2
 text = "Undead Capacity : 2"
 script = SubResource("GDScript_2yx72")
 
+[node name="UndeadLifespan" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Undead Lifespan : 60s"
+
 [node name="Space2" type="Control" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 32)
 layout_mode = 2

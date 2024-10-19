@@ -88,11 +88,11 @@ func get_soul_essence() -> int :
 
  
 signal food_delivery_value_updated(new_value : int)
-signal food_delivered(new_value : int)
+signal crypt_food_updated(new_value : int)
 
 
 var _food_delivery_quantity : int = 0
-var _crypt_food : int = 0
+var _crypt_food : int = 100
 
 
 func get_food_delivery_quantity() -> int : 
@@ -128,4 +128,30 @@ func deliver_food() -> void :
 		return
 	
 	_crypt_food += quantity
-	food_delivered.emit(_crypt_food)
+	crypt_food_updated.emit(_crypt_food)
+
+
+func create_crypt_food(quantity : int) -> Error : 
+	if quantity <= 0 :
+		return FAILED
+	
+	_crypt_food += quantity
+	crypt_food_updated.emit(_crypt_food)
+	
+	return OK
+
+
+func consume_crypt_food(quantity : int, forced : bool = false) -> Error : 
+	if quantity < 0 or quantity > _crypt_food : 
+		if not forced :
+			return FAILED
+		
+		_crypt_food = 0
+		crypt_food_updated.emit(_crypt_food)
+		
+		return FAILED
+	
+	_crypt_food -= quantity
+	crypt_food_updated.emit(_crypt_food)
+	
+	return OK

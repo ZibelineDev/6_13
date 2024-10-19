@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://to7blm1bi3xi"]
+
+[ext_resource type="Script" path="res://scenes/singletons/creature_craft/creature_craft.gd" id="1_csxy2"]
+
+[node name="CreatureCraft" type="Node"]
+script = ExtResource("1_csxy2")

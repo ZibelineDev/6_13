@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bq0e4hcn1o753"]
+
+[ext_resource type="Script" path="res://scenes/singletons/creature_craft/creatures/rat_craft/rat_craft.gd" id="1_71chn"]
+[ext_resource type="Texture2D" uid="uid://ghxottr4w82l" path="res://assets/characters/rat_folk/rat_folk.png" id="1_nj0t5"]
+
+[node name="RatCraft" type="VBoxContainer"]
+script = ExtResource("1_71chn")
+
+[node name="HorizontalBox" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="TextureRect" type="TextureRect" parent="HorizontalBox"]
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("1_nj0t5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HorizontalBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="FoodCostLabel" type="Label" parent="HorizontalBox/VBoxContainer"]
+layout_mode = 2
+text = "Food : 25"
+
+[node name="SoulEssenceCostLabel" type="Label" parent="HorizontalBox/VBoxContainer"]
+layout_mode = 2
+text = "Soul Essence : 25"
+
+[node name="CraftButton" type="Button" parent="HorizontalBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(90, 40)
+layout_mode = 2
+size_flags_vertical = 4
+focus_mode = 0
+text = "Craft"
+
+[node name="CraftCountLabel" type="Label" parent="HorizontalBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "0"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 28)
+layout_mode = 2
+show_percentage = false

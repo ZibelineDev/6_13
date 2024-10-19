@@ -38,7 +38,7 @@ func _initialise_connection() -> void :
 	if not _skill.is_unlocked() :
 		_skill.unlocked.connect(_on_skill_unlocked)
 	
-	_skill.purchased.connect(_on_pressed)
+	_skill.purchased.connect(_on_skill_purchased)
 
 
 func _initialise_icon() -> void :
@@ -53,7 +53,6 @@ func _try_to_purchase() -> void :
 	
 	else :
 		_update_modulate(Color(1, 1, 1))
-		_skill.purchased.disconnect(_on_pressed)
 
 
 func _update_modulate(color : Color) -> void :
@@ -78,3 +77,7 @@ func _make_custom_tooltip(_for_text : String) -> Object :
 func _on_skill_unlocked() -> void : 
 	_update_modulate(Color8(170, 170, 170))
 	_skill.unlocked.disconnect(_on_skill_unlocked)
+
+
+func _on_skill_purchased() -> void :
+	pressed.disconnect(_on_pressed)

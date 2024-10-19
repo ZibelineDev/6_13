@@ -85,3 +85,73 @@ func consume_soul_essence(quantity : int, forced : bool = false) -> Error :
 func get_soul_essence() -> int : 
 	return _soul_essence
 #endregion
+
+ 
+signal food_delivery_value_updated(new_value : int)
+signal crypt_food_updated(new_value : int)
+
+
+var _food_delivery_quantity : int = 0
+var _crypt_food : int = 0
+
+
+func get_food_delivery_quantity() -> int : 
+	return _food_delivery_quantity
+
+
+func get_crypt_food() -> int :
+	return _crypt_food
+
+
+func manage_food_delivery_quantity(increase : bool = true) -> void : 
+	if increase : 
+		_food_delivery_quantity += 5
+	else :
+		_food_delivery_quantity -= 5
+	
+	_food_delivery_quantity = clamp(_food_delivery_quantity, 0, 500)
+	food_delivery_value_updated.emit(_food_delivery_quantity)
+
+
+func deliver_food() -> void : 
+	var quantity : int = _food_delivery_quantity
+	
+	if quantity > _food : 
+		quantity = _food
+	
+	if quantity <= 0 : 
+		return
+	
+	var error : Error = consume_food(quantity)
+	
+	if error : 
+		return
+	
+	_crypt_food += quantity
+	crypt_food_updated.emit(_crypt_food)
+
+
+func create_crypt_food(quantity : int) -> Error : 
+	if quantity <= 0 :
+		return FAILED
+	
+	_crypt_food += quantity
+	crypt_food_updated.emit(_crypt_food)
+	
+	return OK
+
+
+func consume_crypt_food(quantity : int, forced : bool = false) -> Error : 
+	if quantity < 0 or quantity > _crypt_food : 
+		if not forced :
+			return FAILED
+		
+		_crypt_food = 0
+		crypt_food_updated.emit(_crypt_food)
+		
+		return FAILED
+	
+	_crypt_food -= quantity
+	crypt_food_updated.emit(_crypt_food)
+	
+	return OK

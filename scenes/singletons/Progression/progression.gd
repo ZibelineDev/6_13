@@ -27,6 +27,14 @@ var book_reached : bool = false
 @warning_ignore("unused_signal")
 signal book_reached_unlocked
 
+var book_activated : bool = false
+@warning_ignore("unused_signal")
+signal book_activated_unlocked
+
+var creature_craft_activated : bool = false
+@warning_ignore("unused_signal")
+signal creature_craft_activated_unlocked
+
 var ranger_position : Vector2 = Vector2(10, 30)
 var vampire_position : Vector2 = Vector2(0, 21)
 var vampire_camera_position : Vector2 = Vector2(0, 0)

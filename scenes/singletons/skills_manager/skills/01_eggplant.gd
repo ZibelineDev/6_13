@@ -7,7 +7,7 @@ func get_header() -> String :
 
 
 func get_description() -> String : 
-	return "Unlocks eggplants.\nMore efficient than pumpkins."
+	return "Unlocks eggplants.\n\nMore efficient than pumpkins."
 
 
 func get_cost() -> int : 
@@ -20,6 +20,7 @@ func get_icon() -> Texture2D :
 
 func _on_purchased() -> void : 
 	FieldsManager.ref.available_crops_updated.emit()
+	SkillsManager.ref.get_skill("S04PopulationControl").unlock()
 
 
 func is_unlocked() -> bool : 

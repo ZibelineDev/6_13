@@ -14,6 +14,7 @@ var _current_menu : UIMenu
 @onready var book : UIMenu = $Book
 @onready var crops_manager : UIMenu = $CropsManager
 @onready var snatching_menu : UIMenu = $SnatchingMenu
+@onready var creature_craft : UIMenu = $CreatureCraft
 
 
 func _input(event : InputEvent) -> void :
@@ -50,6 +51,13 @@ func open_snatching_menu() -> void :
 	
 	snatching_menu.visible = true
 	_current_menu = snatching_menu
+
+
+func open_creature_craft() -> void :
+	close_menu()
+	
+	creature_craft.visible = true
+	_current_menu = creature_craft
 
 
 func ui_element_closed() -> void : 

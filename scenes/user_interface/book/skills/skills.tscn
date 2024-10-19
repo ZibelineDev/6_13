@@ -56,8 +56,47 @@ offset_right = 261.0
 offset_bottom = 76.0
 skill_name = "S03UndeadCapacity"
 
+[node name="Skill4" parent="." instance=ExtResource("1_t3f6k")]
+z_index = 1
+layout_mode = 1
+offset_left = -274.0
+offset_top = 12.0
+offset_right = -210.0
+offset_bottom = 76.0
+skill_name = "S04PopulationControl"
+
+[node name="Skill5" parent="." instance=ExtResource("1_t3f6k")]
+z_index = 1
+layout_mode = 1
+offset_left = -39.0
+offset_top = -104.0
+offset_right = 25.0
+offset_bottom = -40.0
+skill_name = "S05CreatureCraft"
+
+[node name="Skill6" parent="." instance=ExtResource("1_t3f6k")]
+z_index = 1
+layout_mode = 1
+offset_left = -39.0
+offset_top = 12.0
+offset_right = 25.0
+offset_bottom = 76.0
+skill_name = "S06FoodDelivery"
+
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(597, 394, 597, 268)
 default_color = Color(0.314316, 0.314316, 0.314316, 1)
 script = ExtResource("2_o4bf1")
 target_skill_name = "S03UndeadCapacity"
+
+[node name="Line2D2" type="Line2D" parent="."]
+points = PackedVector2Array(126, 268, 126, 384)
+default_color = Color(0.314316, 0.314316, 0.314316, 1)
+script = ExtResource("2_o4bf1")
+target_skill_name = "S04PopulationControl"
+
+[node name="Line2D3" type="Line2D" parent="."]
+points = PackedVector2Array(361, 268, 361, 152)
+default_color = Color(0.314316, 0.314316, 0.314316, 1)
+script = ExtResource("2_o4bf1")
+target_skill_name = "S05CreatureCraft"

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnhqia8uf112o"]
+[gd_scene load_steps=7 format=3 uid="uid://bnhqia8uf112o"]
 
 [ext_resource type="SpriteFrames" uid="uid://b121j6c4bhh5y" path="res://assets/props/leatherwork/station_animation.tres" id="1_4mql0"]
 [ext_resource type="Script" path="res://scenes/props/leatherwork_station/leatherwork_station.gd" id="1_tejxn"]
 [ext_resource type="SpriteFrames" uid="uid://dvmqmpu44e8a2" path="res://assets/props/leatherwork/worker_animation.tres" id="2_jikqf"]
+[ext_resource type="PackedScene" uid="uid://lrvyjg12k6at" path="res://scenes/user_interface/markers/exclamation_marker/exclamation_mark.tscn" id="4_ch1ni"]
+[ext_resource type="Script" path="res://scenes/user_interface/markers/exclamation_marker/leather_work_marker.gd" id="5_3j3ul"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0iy"]
 size = Vector2(30, 29)
@@ -28,3 +30,7 @@ autoplay = "idle"
 unique_name_in_owner = true
 position = Vector2(1, -1.5)
 shape = SubResource("RectangleShape2D_md0iy")
+
+[node name="ExclamationMark" parent="." instance=ExtResource("4_ch1ni")]
+position = Vector2(0, -14)
+script = ExtResource("5_3j3ul")

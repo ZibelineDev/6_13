@@ -11,6 +11,14 @@ const SPAWN_POINTS : Array[Vector2i] = [
 const RAT_SPAWN_POINTS : Array[Vector2i] = [
 	Vector2i(24, 5),
 	Vector2i(35, 3),
+	Vector2i(29, 5),
+	Vector2i(15, 7),
+	Vector2i(-12, 6),
+	Vector2i(12, -3),
+	Vector2i(-12, -3),
+	Vector2i(12, 6),
+	Vector2i(-3, 0),
+	Vector2i(3, 0),
 ]
 
 
@@ -68,11 +76,11 @@ func _synchronise_pawns() -> void :
 
 func _synchronise_rats() -> void : 
 	var rats : int = CreatureCraftManager.ref.get_rats()
-	if rats >= 1 :
-		_spawn_rat(RAT_SPAWN_POINTS[0])
 	
-	if rats >= 2 :
-		_spawn_rat(RAT_SPAWN_POINTS[1])
+	for i : int in range(0, rats) :
+		if i > 9 :
+			break 
+		_spawn_rat(RAT_SPAWN_POINTS[i])
 
 
 func _on_undead_population_updated(_new_value : int) -> void :
@@ -143,7 +151,7 @@ func _spawn_undead(to_spawn : UndeadPawnResource) -> void :
 
 
 func _spawn_rat(spawn_point : Vector2i) -> void : 
-	if _spawned_rats >= 2 :
+	if _spawned_rats >= 10 :
 		return
 	
 	var scene : PackedScene = preload("res://scenes/characters/pawn/rat_pawn/rat_pawn.tscn")
@@ -156,13 +164,7 @@ func _spawn_rat(spawn_point : Vector2i) -> void :
 
 
 func _on_rat_created() -> void : 
-	if _spawned_rats >= 2 : 
+	if _spawned_rats >= 10 : 
 		return 
 	
-	if _spawned_rats == 0 :
-		_spawn_rat(RAT_SPAWN_POINTS[0])
-		return
-	
-	if _spawned_rats == 1 : 
-		_spawn_rat(RAT_SPAWN_POINTS[1])
-		return
+	_spawn_rat(RAT_SPAWN_POINTS[int(_spawned_rats - 1)])

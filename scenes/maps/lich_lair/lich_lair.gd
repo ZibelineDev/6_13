@@ -8,8 +8,14 @@ const SPAWN_POINTS : Array[Vector2i] = [
 	Vector2i(8, 6),
 ]
 
+const RAT_SPAWN_POINTS : Array[Vector2i] = [
+	Vector2i(24, 5),
+	Vector2i(35, 3),
+]
+
 
 var _undead_pawns : Array[UndeadPawn] = []
+var _spawned_rats : int = 0
 
 
 func _ready() -> void :
@@ -17,7 +23,9 @@ func _ready() -> void :
 	(%Camera2D as Camera2D).position = Progression.ref.vampire_camera_position
 	_initialise_areas()
 	_synchronise_pawns()
+	_synchronise_rats()
 	PawnManager.ref.undead_population_updated.connect(_on_undead_population_updated)
+	CreatureCraftManager.ref.crafting_rat_completed.connect(_on_rat_created)
 
 
 func _process(_delta : float) -> void :
@@ -56,6 +64,15 @@ func _synchronise_pawns() -> void :
 	
 	if _undead_pawns.size() < 4 :
 		_spawn_undead_pawns(remote_undeads)
+
+
+func _synchronise_rats() -> void : 
+	var rats : int = CreatureCraftManager.ref.get_rats()
+	if rats >= 1 :
+		_spawn_rat(RAT_SPAWN_POINTS[0])
+	
+	if rats >= 2 :
+		_spawn_rat(RAT_SPAWN_POINTS[1])
 
 
 func _on_undead_population_updated(_new_value : int) -> void :
@@ -123,3 +140,29 @@ func _spawn_undead(to_spawn : UndeadPawnResource) -> void :
 	%UndeadPawns.add_child(node)
 	
 	_undead_pawns.append(node)
+
+
+func _spawn_rat(spawn_point : Vector2i) -> void : 
+	if _spawned_rats >= 2 :
+		return
+	
+	var scene : PackedScene = preload("res://scenes/characters/pawn/rat_pawn/rat_pawn.tscn")
+	var node : Pawn = scene.instantiate() as Pawn
+	
+	node.set_spawn_point(spawn_point)
+	%RatPawns.add_child(node)
+	
+	_spawned_rats += 1
+
+
+func _on_rat_created() -> void : 
+	if _spawned_rats >= 2 : 
+		return 
+	
+	if _spawned_rats == 0 :
+		_spawn_rat(RAT_SPAWN_POINTS[0])
+		return
+	
+	if _spawned_rats == 1 : 
+		_spawn_rat(RAT_SPAWN_POINTS[1])
+		return

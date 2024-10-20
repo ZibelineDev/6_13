@@ -26,7 +26,7 @@ text = "Food : 25"
 
 [node name="SoulEssenceCostLabel" type="Label" parent="HorizontalBox/VBoxContainer"]
 layout_mode = 2
-text = "Soul Essence : 25"
+text = "Soul Essence : 15"
 
 [node name="CraftButton" type="Button" parent="HorizontalBox"]
 unique_name_in_owner = true

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://4t322bltku66"]
+
+[ext_resource type="PackedScene" uid="uid://cmr0254coyhf4" path="res://scenes/characters/pawn/pawn.tscn" id="1_frhdd"]
+[ext_resource type="SpriteFrames" uid="uid://ckk6qso0c5l3h" path="res://assets/characters/rat_folk/sprite_frames.tres" id="2_ow5gs"]
+
+[node name="RatPawn" instance=ExtResource("1_frhdd")]
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("2_ow5gs")
+animation = &"idle_2"

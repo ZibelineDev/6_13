@@ -21,7 +21,8 @@ func get_icon() -> Texture2D :
 
 
 func _on_purchased() -> void : 
-	pass
+	if SkillsManager.ref.get_skill("S07Leatherwork").is_purchased() : 
+		SkillsManager.ref.get_skill("S08Completion").unlock()
 
 
 func is_unlocked() -> bool : 

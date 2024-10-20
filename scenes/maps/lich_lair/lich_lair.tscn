@@ -45,7 +45,7 @@ tile_set = ExtResource("2_pmap1")
 
 [node name="WallDecoration" type="TileMapLayer" parent="."]
 position = Vector2(-4, -4)
-tile_map_data = PackedByteArray("AAD///r/AgAXACgAAAD///v/AgAXACkAAAAAAPr/AgAYACgAAAAAAPv/AgAYACkAAAABAPr/AgAZACgAAAABAPv/AgAZACkAAAD+//r/AgAPACsAAAD+//v/AgAPACwAAAACAPr/AgATACsAAAACAPv/AgATACwAAAAAAPj/AgAYACsAAAAAAPn/AgAYACwAAAABAPj/AgASACsAAAABAPn/AgASACwAAAD///j/AgAQACsAAAD///n/AgAQACwAAAD9//r/AgAkABUAAAD9//v/AgAkABYAAAADAPr/AgAkABUAAAADAPv/AgAkABYAAAD8//r/AgAXAC4AAAD8//v/AgAXAC8AAAAEAPr/AgAZAC4AAAAEAPv/AgAZAC8AAAACAPj/AgAYAC4AAAACAPn/AgAYAC8AAAD+//j/AgAYAC4AAAD+//n/AgAYAC8AAAD7/wQAAgABADwAAAACAAIAAgADADoAAAAHAAMAAgADADwAAADz/wcAAgABADwAAAD2/wUAAgABADoAAAD5//z/AgABADwAAAAKAAUAAgABADoAAAAKAP7/AgADADwAAAD9//z/AgADADoAAAANAAAAAgAUAA0AAAANAAEAAgAUAA4AAAANAAIAAgAUAA8AAAANAAMAAgAUABAAAAANAAQAAgAUABEAAAANAAUAAgAUABIAAAARAAcAAgABADwAAAATAAMAAgADADoAAAAPAAAAAgADADwAAAATAP//AgABADoAAAAQAPr/AgAXADEAAAAQAPv/AgAXADIAAAASAPr/AgAZADEAAAASAPv/AgAZADIAAAATAPr/AgASADEAAAATAPv/AgASADIAAAAPAPr/AgAQADEAAAAPAPv/AgAQADIAAAAZAAQAAgABADoAAAAiAP//AgABADoAAAAVAPz/AgABADoAAAAjAAcAAgABADoAAAAXAAcAAgABADwAAAAfAAIAAgABADwAAAAfAP3/AgABADwAAAAaAAcAAgADADwAAAAZAP//AgADADwAAAAjAAMAAgADADwAAAAXAP3/AgADADwAAAAlAPz/AgADADwAAAAeAAcAAgADADoAAAAkAAEAAgADADoAAAA=")
+tile_map_data = PackedByteArray("AAD///r/AgAXACgAAAD///v/AgAXACkAAAAAAPr/AgAYACgAAAAAAPv/AgAYACkAAAABAPr/AgAZACgAAAABAPv/AgAZACkAAAD+//r/AgAPACsAAAD+//v/AgAPACwAAAACAPr/AgATACsAAAACAPv/AgATACwAAAAAAPj/AgAYACsAAAAAAPn/AgAYACwAAAABAPj/AgASACsAAAABAPn/AgASACwAAAD///j/AgAQACsAAAD///n/AgAQACwAAAD9//r/AgAkABUAAAD9//v/AgAkABYAAAADAPr/AgAkABUAAAADAPv/AgAkABYAAAD8//r/AgAXAC4AAAD8//v/AgAXAC8AAAAEAPr/AgAZAC4AAAAEAPv/AgAZAC8AAAACAPj/AgAYAC4AAAACAPn/AgAYAC8AAAD+//j/AgAYAC4AAAD+//n/AgAYAC8AAAD7/wQAAgABADwAAAACAAIAAgADADoAAAAHAAMAAgADADwAAADz/wcAAgABADwAAAD2/wUAAgABADoAAAD5//z/AgABADwAAAAKAAUAAgABADoAAAAKAP7/AgADADwAAAD9//z/AgADADoAAAANAAAAAgAUAA0AAAANAAEAAgAUAA4AAAANAAIAAgAUAA8AAAANAAMAAgAUABAAAAANAAQAAgAUABEAAAANAAUAAgAUABIAAAARAAcAAgABADwAAAATAAMAAgADADoAAAAPAAAAAgADADwAAAATAP//AgABADoAAAAQAPr/AgAXADEAAAAQAPv/AgAXADIAAAASAPr/AgAZADEAAAASAPv/AgAZADIAAAATAPr/AgASADEAAAATAPv/AgASADIAAAAPAPr/AgAQADEAAAAPAPv/AgAQADIAAAAZAAQAAgABADoAAAAiAP//AgABADoAAAAVAPz/AgABADoAAAAjAAcAAgABADoAAAAXAAcAAgABADwAAAAfAAIAAgABADwAAAAfAP3/AgABADwAAAAaAAcAAgADADwAAAAZAP//AgADADwAAAAjAAMAAgADADwAAAAXAP3/AgADADwAAAAlAPz/AgADADwAAAAeAAcAAgADADoAAAAkAAEAAgADADoAAAAYAPv/AgAkAA8AAAAZAPr/AgAnABUAAAAZAPv/AgAnABYAAAAaAPr/AgApABUAAAAaAPv/AgApABYAAAAeAPn/AgAvABUAAAAeAPr/AgAvABYAAAAeAPv/AgAvABcAAAAfAPn/AgAwABUAAAAfAPr/AgAwABYAAAAfAPv/AgAwABcAAAAgAPn/AgAwABUAAAAgAPr/AgAwABYAAAAgAPv/AgAwABcAAAAhAPn/AgAwABUAAAAhAPr/AgAwABYAAAAhAPv/AgAwABcAAAAiAPn/AgAxABUAAAAiAPr/AgAxABYAAAAiAPv/AgAxABcAAAAdAPr/AgAkABUAAAAdAPv/AgAkABYAAAAbAPv/AgArABIAAAAcAPv/AgAtABIAAAAjAPv/AgAkABIAAAA=")
 tile_set = ExtResource("2_pmap1")
 
 [node name="Props" type="TileMapLayer" parent="."]
@@ -58,6 +58,9 @@ position = Vector2(-4, -4)
 tile_set = ExtResource("2_pmap1")
 
 [node name="UndeadPawns" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="RatPawns" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -140,21 +143,20 @@ theme_override_constants/margin_bottom = 16
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 bbcode_enabled = true
-text = "The Lich is responsible for taking care of the undeads. 
+text = "The Lich is responsible for taking care of the dead and the undead. 
 
-They can snatch souls from the living to extract Soul Essences from them. After a while the soul will dissipate. The undead soul will disappear.
+
+They can snatch souls from the living to extract Soul Essences from them.
+
 
 Why is the Lich snatching souls from the Ranger's domain ?
-
 Well, it's hard to explain for people who don't understand how magic works. But this is how it is. 
-
 
 
 Use the Altar to Snatch Souls from the Ranger's Domain. 
 
 
-
-The Lich can use Soul Essences for many things. You should try using the book."
+The Lich can use Soul Essences for many things. [color=green]You should try spending souls using the book in the next room on the right[/color]."
 
 [node name="CloseModal" type="Button" parent="CanvasLayer/MarginContainer"]
 unique_name_in_owner = true

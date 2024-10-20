@@ -60,7 +60,6 @@ func create_soul_essence(quantity : int) -> Error :
 		return FAILED
 	
 	_soul_essence += quantity
-	print("Generating soul essences")
 	soul_essence_updated.emit(_soul_essence)
 	
 	return OK

@@ -5,10 +5,6 @@ extends MarginContainer
 var _skill : Skill
 
 
-func _ready() -> void :
-	print("Hey")
-
-
 func _update_controls() -> void :
 	(%Header as Label).text = _skill.get_header()
 	(%Description as RichTextLabel).text = "[center]%s[/center]" %_skill.get_description()

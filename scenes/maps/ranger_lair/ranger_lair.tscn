@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://b7de1soj2ai61"]
+[gd_scene load_steps=15 format=4 uid="uid://b7de1soj2ai61"]
 
 [ext_resource type="TileSet" uid="uid://1w3uk830e33o" path="res://assets/tilemaps/farm/tileset.tres" id="1_f70k2"]
 [ext_resource type="Script" path="res://scenes/maps/ranger_lair/ranger_lair.gd" id="1_ldlos"]
 [ext_resource type="PackedScene" uid="uid://kde8g4y7fa1n" path="res://scenes/characters/ranger/ranger.tscn" id="2_17o7f"]
 [ext_resource type="PackedScene" uid="uid://dhml8u5lpdonw" path="res://scenes/props/farm_manager/farm_manager.tscn" id="3_on1ek"]
 [ext_resource type="PackedScene" uid="uid://cc1d7ocgmhriu" path="res://scenes/props/crop_field/crop_field.tscn" id="5_116rs"]
+[ext_resource type="PackedScene" uid="uid://bnhqia8uf112o" path="res://scenes/props/leatherwork_station/leatherwork_station.tscn" id="5_djfg5"]
 [ext_resource type="PackedScene" uid="uid://lrvyjg12k6at" path="res://scenes/user_interface/markers/exclamation_marker/exclamation_mark.tscn" id="6_ldlxv"]
 [ext_resource type="Script" path="res://scenes/maps/ranger_lair/canvas_layer.gd" id="7_3qt1g"]
 [ext_resource type="PackedScene" uid="uid://c8d14oi5l4jux" path="res://scenes/characters/goat_idle/goat_idle.tscn" id="7_214bh"]
@@ -55,6 +56,9 @@ position = Vector2(48, 0)
 collision_layer = 2
 collision_mask = 0
 
+[node name="LeatherworkStation" parent="." instance=ExtResource("5_djfg5")]
+position = Vector2(11, -34)
+
 [node name="CropFields" type="Node2D" parent="."]
 
 [node name="CropField" parent="CropFields" instance=ExtResource("5_116rs")]
@@ -82,21 +86,21 @@ position = Vector2(48, -12)
 [node name="GoatIdle" parent="." instance=ExtResource("7_214bh")]
 position = Vector2(67, 13)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="InvisibleWalls" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisibleWalls"]
 position = Vector2(-127, -3)
 shape = SubResource("RectangleShape2D_apqb1")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisibleWalls"]
 position = Vector2(-7, -73)
 shape = SubResource("RectangleShape2D_pornu")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="InvisibleWalls"]
 position = Vector2(119, -7)
 shape = SubResource("RectangleShape2D_ji6kw")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="InvisibleWalls"]
 position = Vector2(-7.5, 69)
 shape = SubResource("RectangleShape2D_mywc5")
 
@@ -130,21 +134,20 @@ layout_mode = 2
 bbcode_enabled = true
 text = "The Ranger's lover's been reborn as a Lich.
 
-They have reunited and now form an unusual duo. 
+
+Since then, they have been reunited. They form an unusual duo. 
+
 
 One is cultivating the earth and feeding their workers. The other is capturing souls to sustain the dead.
 
 
 
-
 The Ranger can assign workers to produce food. 
-
 Be careful, villagers consume food and will leave if they are starving. New villagers will join if you are abundant.
 
 
 
-
-Once you have a few workers active, you can switch to the Lich by pressing the Control Key."
+Once you have a few workers active, [color=green]you can switch to the Lich by pressing the Control Key[/color]."
 
 [node name="CloseModal" type="Button" parent="CanvasLayer/MarginContainer"]
 unique_name_in_owner = true

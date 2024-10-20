@@ -19,6 +19,7 @@ func interact() -> void :
 
 func _unlock() -> void :
 	visible = true
+	(%CollisionShape2D as CollisionShape2D).disabled = false
 	
 	var scene : PackedScene = preload("res://assets/particles/poof.tscn")
 	var node : PoofParticle = scene.instantiate() as PoofParticle
@@ -28,6 +29,7 @@ func _unlock() -> void :
 
 func _lock() -> void :
 	visible = false
+	(%CollisionShape2D as CollisionShape2D).disabled = true
 	SkillsManager.ref.get_skill("S05CreatureCraft").purchased.connect(_on_skill_05_purchased)
 
 

@@ -23,7 +23,7 @@ var _is_snatching : bool = false
 var _min_population_snatch : int = 1
 var _auto_snatch : bool = false
 
-var _undead_capacity : int = 2 
+var _undead_capacity : int = 3 
 
 
 func _ready() -> void :
@@ -121,5 +121,5 @@ func get_undead_capacity() -> int :
 
 
 func _on_skill_03_purchased() -> void :
-	_undead_capacity = 4 
-	undead_capacity_updated.emit(4)
+	_undead_capacity = 5 
+	undead_capacity_updated.emit(5)

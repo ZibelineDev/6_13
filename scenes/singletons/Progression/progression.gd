@@ -35,6 +35,10 @@ var creature_craft_activated : bool = false
 @warning_ignore("unused_signal")
 signal creature_craft_activated_unlocked
 
+var leatherwork_activated : bool = false
+@warning_ignore("unused_signal")
+signal leatherwork_activated_unlocked
+
 var ranger_position : Vector2 = Vector2(10, 30)
 var vampire_position : Vector2 = Vector2(0, 21)
 var vampire_camera_position : Vector2 = Vector2(0, 0)

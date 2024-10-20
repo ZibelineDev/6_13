@@ -15,7 +15,7 @@ signal crafting_rat_completed
 var _is_crafting_rat : bool = false
 const RAT_CRAFT_TIME : float = 5.0
 const RAT_FOOD_COST : int = 25
-const RAT_SOUL_ESSENCE_COST : int = 25
+const RAT_SOUL_ESSENCE_COST : int = 15
 var _rat_progress : float = 0.0
 var _rats_crafted : int = 0
 

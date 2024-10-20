@@ -1,15 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://cvhg3mcmg1kvo"]
+[gd_scene load_steps=10 format=3 uid="uid://cvhg3mcmg1kvo"]
 
 [ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills_manager.gd" id="1_gkerr"]
 [ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills/02_auto_snatch.gd" id="2_c730i"]
+[ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills/07_leatherwork.gd" id="2_fue6i"]
 [ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills/05_creature_craft.gd" id="2_ndgct"]
 [ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills/01_eggplant.gd" id="2_pcf8f"]
+[ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills/08_completion.gd" id="2_tja3d"]
 [ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills/03_max_undead.gd" id="2_uadca"]
 [ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills/06_food_delivery.gd" id="3_7pp01"]
 [ext_resource type="Script" path="res://scenes/singletons/skills_manager/skills/04_population_control.gd" id="5_mg12h"]
 
 [node name="SkillsManager" type="Node"]
 script = ExtResource("1_gkerr")
+
+[node name="S08Completion" type="Node" parent="."]
+script = ExtResource("2_tja3d")
+
+[node name="S07Leatherwork" type="Node" parent="."]
+script = ExtResource("2_fue6i")
 
 [node name="S05CreatureCraft" type="Node" parent="."]
 script = ExtResource("2_ndgct")

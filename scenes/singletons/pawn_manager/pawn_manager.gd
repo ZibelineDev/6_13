@@ -11,13 +11,14 @@ func _init() -> void :
 
 
 const FOOD_THRESHOLDS : Array[int] = [
-	5, 10, 25, 50, 100, 250, 500, 1000, 2500, 7500, 16000, 35000,
+	5, 10, 25, 50, 75, 100, 125, 150, 175, 500, 16000, 350000
 ]
 
 signal population_updated(new_value : int)
 signal farmers_updated(new_value : int)
 signal undead_population_updated(new_value : int)
 signal population_control_updated(new_value : int)
+signal leatherwork_updated(new_value : int)
 
 
 var _human_pawns : int = 1
@@ -27,6 +28,7 @@ var _population_control : int = 11
 const MAXIMUM_POPULATION : int = 11
 
 var _farmers : int = 0
+var _leatherwork : int = 0
 
 var _starvation_cycles : int = 0
 const MAX_STARVATION_CYCLES : int = 5
@@ -55,6 +57,12 @@ func consume_pawn() -> Error :
 		population_updated.emit(_human_pawns)
 		return OK
 	
+	if _leatherwork >= 1 :
+		manage_leatherworker(false)
+		_human_pawns -= 1
+		population_updated.emit(_human_pawns)
+		return OK
+	
 	if _farmers >= 1 :
 		manage_farmers(false)
 		_human_pawns -= 1 
@@ -79,12 +87,17 @@ func available_human_pawns() -> int :
 	var available_pawns : int = _human_pawns
 	
 	available_pawns -= _farmers
+	available_pawns -= _leatherwork
 	
 	return available_pawns
 
 
 func get_farmers() -> int : 
 	return _farmers
+
+
+func get_leatherworker() -> int :
+	return _leatherwork
 
 
 func manage_farmers(assign : bool = true) -> Error : 
@@ -104,6 +117,26 @@ func manage_farmers(assign : bool = true) -> Error :
 		_farmers -= 1
 	
 	farmers_updated.emit(_farmers)
+	return OK
+
+
+func manage_leatherworker(assign : bool = true) -> Error :
+	if assign : 
+		if available_human_pawns() <= 0 :
+			return FAILED
+		
+		if _leatherwork >= 5 : 
+			return FAILED
+		
+		_leatherwork += 1
+	
+	else : 
+		if _leatherwork <= 0 :
+			return FAILED
+		
+		_leatherwork -= 1
+	
+	leatherwork_updated.emit(_leatherwork)
 	return OK
 
 

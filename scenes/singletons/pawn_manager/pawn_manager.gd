@@ -11,7 +11,7 @@ func _init() -> void :
 
 
 const FOOD_THRESHOLDS : Array[int] = [
-	5, 10, 25, 50, 100, 250, 500, 1000, 2500, 7500, 16000, 35000,
+	5, 10, 25, 50, 75, 100, 125, 150, 175, 500, 16000, 350000
 ]
 
 signal population_updated(new_value : int)
@@ -54,6 +54,12 @@ func consume_pawn() -> Error :
 	
 	if available_human_pawns() >= 1 :
 		_human_pawns -= 1 
+		population_updated.emit(_human_pawns)
+		return OK
+	
+	if _leatherwork >= 1 :
+		manage_leatherworker(false)
+		_human_pawns -= 1
 		population_updated.emit(_human_pawns)
 		return OK
 	
@@ -119,7 +125,7 @@ func manage_leatherworker(assign : bool = true) -> Error :
 		if available_human_pawns() <= 0 :
 			return FAILED
 		
-		if _leatherwork >= 4 : 
+		if _leatherwork >= 5 : 
 			return FAILED
 		
 		_leatherwork += 1

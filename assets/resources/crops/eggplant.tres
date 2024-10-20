@@ -11,4 +11,4 @@ name = "Eggplant"
 icon = ExtResource("1_div7a")
 sprites_frame = ExtResource("3_t6jhg")
 growth_time = 3.0
-crop_yield = 30
+crop_yield = 45

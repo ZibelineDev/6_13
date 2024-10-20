@@ -13,7 +13,7 @@ func get_description() -> String :
 
 
 func get_cost() -> int : 
-	return 50
+	return 25
 
 
 func get_icon() -> Texture2D : 

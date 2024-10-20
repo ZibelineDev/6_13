@@ -14,7 +14,7 @@ signal craft_progressed(progress : float, max_value : float)
 signal craft_completed
 signal equipment_updated
 
-const CRAFT_TIME : float = 300.0
+const CRAFT_TIME : float = 120.0
 var _craft_progress : float = 0.0
 
 var _equipment_crafted : int = 0

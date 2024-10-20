@@ -8,7 +8,7 @@ func get_header() -> String :
 
 func get_description() -> String : 
 	var text : String = "Increases your capacity to hold undead souls within the crypt."
-	text += "\n\n4 Undead can be controlled at once."
+	text += "\n\n5 Undead can be controlled at once."
 	return text
 
 

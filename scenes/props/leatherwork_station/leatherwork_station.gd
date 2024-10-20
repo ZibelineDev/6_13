@@ -15,6 +15,9 @@ func _ready() -> void :
 
 
 func interact() -> void :
+	if not Progression.ref.leatherwork_activated :
+		Progression.ref.leatherwork_activated = true
+		Progression.ref.leatherwork_activated_unlocked.emit()
 	UserInterface.ref.open_leatherwork()
 
 

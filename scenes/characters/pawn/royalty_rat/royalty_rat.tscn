@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ch0t7p0cyyf7h"]
+
+[ext_resource type="PackedScene" uid="uid://cmr0254coyhf4" path="res://scenes/characters/pawn/pawn.tscn" id="1_shn7o"]
+[ext_resource type="Script" path="res://scenes/characters/pawn/royalty_rat/royalty_rat.gd" id="2_g7k25"]
+[ext_resource type="SpriteFrames" uid="uid://b00ucoavh0vvy" path="res://assets/characters/royalty_rat/sprite_frames.tres" id="3_v32h0"]
+
+[node name="RoyaltyRat" instance=ExtResource("1_shn7o")]
+script = ExtResource("2_g7k25")
+
+[node name="AnimatedSprite2D" parent="." index="1"]
+sprite_frames = ExtResource("3_v32h0")
+animation = &"idle"
+frame_progress = 0.774381

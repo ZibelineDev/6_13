@@ -1,0 +1,161 @@
+[gd_scene load_steps=5 format=3 uid="uid://b6mckxsbmc6pt"]
+
+[ext_resource type="Script" path="res://scenes/outro/outro.gd" id="1_4lske"]
+[ext_resource type="PackedScene" uid="uid://ch0t7p0cyyf7h" path="res://scenes/characters/pawn/royalty_rat/royalty_rat.tscn" id="1_xdtrd"]
+[ext_resource type="Script" path="res://scenes/outro/canvas_layer.gd" id="3_1njbv"]
+[ext_resource type="Theme" uid="uid://dooikrh66gno7" path="res://assets/themes/invisible_buttons.tres" id="4_8b3uk"]
+
+[node name="Outro" type="Node2D"]
+script = ExtResource("1_4lske")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -123.0
+offset_top = -68.0
+offset_right = 124.0
+offset_bottom = 72.0
+color = Color(0.0295066, 0.0295066, 0.0295066, 1)
+
+[node name="Rats" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="RoyaltyRat" parent="Rats" instance=ExtResource("1_xdtrd")]
+position = Vector2(-72, -13)
+
+[node name="RoyaltyRat2" parent="Rats" instance=ExtResource("1_xdtrd")]
+position = Vector2(-54, 0)
+
+[node name="RoyaltyRat3" parent="Rats" instance=ExtResource("1_xdtrd")]
+position = Vector2(-84, 13)
+
+[node name="RoyaltyRat4" parent="Rats" instance=ExtResource("1_xdtrd")]
+position = Vector2(-63, -34)
+
+[node name="RoyaltyRat5" parent="Rats" instance=ExtResource("1_xdtrd")]
+position = Vector2(-65, 33)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(5, 5)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("3_1njbv")
+
+[node name="Credits" type="MarginContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -3088.0
+offset_bottom = 3088.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_right = 64
+
+[node name="Text" type="RichTextLabel" parent="CanvasLayer/Credits"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center][font_size=64]Thanks for Playing[/font_size]
+
+Main Dev : Sable
+
+Assets : Krishna Palacio
+
+---
+
+Contributions
+
+Elfium (aka Fog Guy) : 
+Asset Edits & Emotional Support
+
+Flufflee :
+Development Map & Emotional Support[/center]"
+fit_content = true
+
+[node name="SixThirteen" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 128
+text = "6 13"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="CanvasLayer/SixThirteen"]
+layout_mode = 0
+offset_left = 188.0
+offset_top = 399.0
+offset_right = 652.0
+offset_bottom = 463.0
+theme_override_font_sizes/font_size = 64
+text = "The Lovers"
+
+[node name="Label2" type="Label" parent="CanvasLayer/SixThirteen"]
+layout_mode = 0
+offset_left = 891.0
+offset_top = 230.0
+offset_right = 1355.0
+offset_bottom = 294.0
+rotation = 3.14159
+theme_override_font_sizes/font_size = 64
+text = "Death"
+horizontal_alignment = 1
+
+[node name="LastModal" type="MarginContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/LastModal"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/LastModal/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/LastModal/PanelContainer/MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "The Rats are off for their first Expedition. 
+
+
+
+Why are the Ranger and the Lich sending creatures on missions ? 
+
+
+
+All I know is it's a way they have found to work together since the incident.
+
+
+
+Maybe they are trying to go back. Who knows. "
+
+[node name="CloseModal" type="Button" parent="CanvasLayer/LastModal"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+focus_mode = 0
+theme = ExtResource("4_8b3uk")
+theme_type_variation = &"FlatButton"
+text = "x"

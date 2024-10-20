@@ -78,3 +78,7 @@ func is_active() -> bool :
 
 func display_hud() -> void :
 	($HUD as Control).visible = true
+
+
+func hide_hud() -> void : 
+	($HUD as Control).visible = false

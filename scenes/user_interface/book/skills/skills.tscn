@@ -92,6 +92,15 @@ offset_right = -210.0
 offset_bottom = -40.0
 skill_name = "S07Leatherwork"
 
+[node name="Skill8" parent="." instance=ExtResource("1_t3f6k")]
+z_index = 1
+layout_mode = 1
+offset_left = -157.0
+offset_top = -220.0
+offset_right = -93.0
+offset_bottom = -156.0
+skill_name = "S08Completion"
+
 [node name="Line2D" type="Line2D" parent="."]
 points = PackedVector2Array(597, 394, 597, 268)
 default_color = Color(0.314316, 0.314316, 0.314316, 1)
@@ -115,3 +124,15 @@ points = PackedVector2Array(126, 152, 126, 268)
 default_color = Color(0.314316, 0.314316, 0.314316, 1)
 script = ExtResource("2_o4bf1")
 target_skill_name = "S07Leatherwork"
+
+[node name="Line2D5" type="Line2D" parent="."]
+points = PackedVector2Array(126, 152, 243, 36)
+default_color = Color(0.314316, 0.314316, 0.314316, 1)
+script = ExtResource("2_o4bf1")
+target_skill_name = "S08Completion"
+
+[node name="Line2D6" type="Line2D" parent="."]
+points = PackedVector2Array(243, 36, 361, 152)
+default_color = Color(0.314316, 0.314316, 0.314316, 1)
+script = ExtResource("2_o4bf1")
+target_skill_name = "S08Completion"

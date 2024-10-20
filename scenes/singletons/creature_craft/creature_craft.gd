@@ -17,7 +17,7 @@ const RAT_CRAFT_TIME : float = 5.0
 const RAT_FOOD_COST : int = 25
 const RAT_SOUL_ESSENCE_COST : int = 25
 var _rat_progress : float = 0.0
-var _rats_crafted : int = 10
+var _rats_crafted : int = 0
 
 
 func _process(delta : float) -> void :

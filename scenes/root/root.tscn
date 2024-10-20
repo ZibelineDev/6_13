@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://g6bqas46atud"]
+[gd_scene load_steps=16 format=3 uid="uid://g6bqas46atud"]
 
 [ext_resource type="Script" path="res://scenes/root/root.gd" id="1_r70vg"]
 [ext_resource type="PackedScene" uid="uid://b7de1soj2ai61" path="res://scenes/maps/ranger_lair/ranger_lair.tscn" id="2_0hqy8"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dqohv7urms56f" path="res://scenes/user_interface/loading_fade/loading_fade.tscn" id="3_eso5h"]
 [ext_resource type="PackedScene" uid="uid://c6mrason1xc02" path="res://scenes/singletons/pawn_manager/pawn_manager.tscn" id="5_4c7lh"]
 [ext_resource type="PackedScene" uid="uid://buralnct38joj" path="res://scenes/singletons/Progression/progression.tscn" id="5_pngwf"]
+[ext_resource type="PackedScene" uid="uid://b6mckxsbmc6pt" path="res://scenes/outro/outro.tscn" id="5_t7lfn"]
 [ext_resource type="PackedScene" uid="uid://bqe1h2flwooe5" path="res://scenes/singletons/fields_manager/fields_manager.tscn" id="6_1fxax"]
 [ext_resource type="PackedScene" uid="uid://d264vci7qghlm" path="res://scenes/maps/intro_hills/intro_hills.tscn" id="6_kc5u0"]
 [ext_resource type="PackedScene" uid="uid://qg8st3vsrxmq" path="res://scenes/singletons/resource_manager/resource_manager.tscn" id="7_t3wyo"]
@@ -20,6 +21,7 @@ script = ExtResource("1_r70vg")
 vampire_lair = ExtResource("2_apedm")
 ranger_lair = ExtResource("2_0hqy8")
 intro_hill = ExtResource("6_kc5u0")
+outro = ExtResource("5_t7lfn")
 
 [node name="Progression" parent="." instance=ExtResource("5_pngwf")]
 
@@ -40,5 +42,6 @@ intro_hill = ExtResource("6_kc5u0")
 [node name="LeatherworkManager" parent="Managers" instance=ExtResource("12_5nime")]
 
 [node name="LoadingFade" parent="." instance=ExtResource("3_eso5h")]
+layer = 5
 
 [node name="UserInterface" parent="." instance=ExtResource("2_i5r7h")]

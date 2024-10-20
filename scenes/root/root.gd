@@ -18,12 +18,13 @@ enum Scenes {
 }
 
 
-const SKIP_INTRO : bool = true
-const DEBUG_SETTINGS : bool = true
+const SKIP_INTRO : bool = false
+const DEBUG_SETTINGS : bool = false
 
 @export var vampire_lair : PackedScene
 @export var ranger_lair : PackedScene
 @export var intro_hill : PackedScene
+@export var outro : PackedScene
 
 var _current_scene_ref : Node
 var _current_scene : Scenes
@@ -68,7 +69,12 @@ func _remove_current_scene() -> void :
 
 
 func switch_scene() -> void : 
+	if _is_switching :
+		return
+	
 	_is_switching = true
+	
+	UserInterface.ref.display_hud()
 	
 	await LoadingFade.ref.fade_in()
 	
@@ -113,3 +119,18 @@ func instantiate_lich_intro() -> void :
 	await LoadingFade.ref.fade_out()
 	
 	_is_switching = false
+
+
+func trigger_outro() -> void : 
+	_is_switching = true
+	UserInterface.ref.hide_hud()
+	
+	await LoadingFade.ref.fade_in()
+	_remove_current_scene()
+	
+	var node : Node = outro.instantiate()
+	
+	_current_scene_ref = node
+	add_child(_current_scene_ref)
+	
+	await LoadingFade.ref.fade_out()

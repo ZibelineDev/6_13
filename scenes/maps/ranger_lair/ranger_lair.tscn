@@ -134,21 +134,20 @@ layout_mode = 2
 bbcode_enabled = true
 text = "The Ranger's lover's been reborn as a Lich.
 
-They have reunited and now form an unusual duo. 
+
+Since then, they have been reunited. They form an unusual duo. 
+
 
 One is cultivating the earth and feeding their workers. The other is capturing souls to sustain the dead.
 
 
 
-
 The Ranger can assign workers to produce food. 
-
 Be careful, villagers consume food and will leave if they are starving. New villagers will join if you are abundant.
 
 
 
-
-Once you have a few workers active, you can switch to the Lich by pressing the Control Key."
+Once you have a few workers active, [color=green]you can switch to the Lich by pressing the Control Key[/color]."
 
 [node name="CloseModal" type="Button" parent="CanvasLayer/MarginContainer"]
 unique_name_in_owner = true
